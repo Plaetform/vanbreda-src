@@ -564,7 +564,7 @@ body {
   margin: 0;
 }
 .cp-list li {
-  padding: 12px 0 12px 24px;
+  padding: 12px 0 12px 36px;
   position: relative;
   border-bottom: 1px solid rgba(0,0,0,.04);
   font-size: 18px;
