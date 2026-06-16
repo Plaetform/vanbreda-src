@@ -22,51 +22,62 @@ interface ImageJob {
 }
 
 const jobs: ImageJob[] = [
+  // ─── Ch0: De Belofte ───
   {
-    name: "img-sophie-portrait",
-    prompt: `A close-up portrait photograph of a woman, 41 years old, with shoulder-length dark blonde hair, light brown eyes. She is looking directly into the camera with a serious, earnest expression. Not smiling. Not sad. Determined and trusting — as if she is addressing a room full of professionals and asking them to do their best for her.
-
-She wears a simple cream-colored knit sweater. The background is softly blurred — warm, neutral, suggesting a home environment but not distracting. The lighting is soft and directional from the left, creating gentle shadows on her face. 
-
-This is a woman who has been through something difficult and is now speaking with quiet strength. Her eyes say: "I'm counting on you."
-
-Style: cinematic portrait photography, shallow depth of field, warm golden color grading, natural skin tones. The composition is intimate — her face fills most of the frame, with just her shoulders visible. No makeup heavy look — natural, real, relatable. Aspect ratio: portrait 3:4.`,
+    name: "img-droomkaart",
+    prompt: `Top-down photograph of a beautiful A4 document lying on a dark walnut wooden desk. The document is titled "DROOMKAART 2030" in elegant serif typography at the top. Below is a hand-drawn customer journey map showing Sophie's ideal experience: circles connected by arrows, with handwritten Dutch annotations in blue pen. Small colored sticky dots (green, orange) mark key moments. The paper is slightly cream-colored with a subtle grid pattern. A fine-tip pen and a cup of espresso are partially visible at the edges. The style mixes professional print design with authentic workshop artifacts. Warm desk lamp lighting, photorealistic, editorial quality. Shot from directly above.`,
   },
   {
-    name: "img-sophie-hospital",
-    prompt: `A cinematic photograph taken in a French hospital. A woman (41, shoulder-length dark blonde hair, cream sweater under a hospital gown) sits alone on the edge of a hospital bed. The room is clinical and unfamiliar — French text visible on signs in the soft background. A window shows it's evening outside.
-
-She is looking down at her hands, which rest on her lap. Her posture conveys vulnerability and exhaustion — she's been through an emergency surgery and is recovering alone in a foreign country. A small overnight bag sits on a chair nearby — she wasn't prepared for this.
-
-The lighting is cool hospital fluorescent mixed with warm evening light from the window, creating a contrast between the clinical environment and her human warmth. The mood is loneliness, uncertainty, and quiet resilience.
-
-Style: cinematic documentary photography, slightly desaturated, shallow depth of field with the woman in focus. The composition places her slightly off-center with empty space around her emphasizing her isolation. No other people visible. Aspect ratio: landscape 4:3.`,
+    name: "img-klantbelofte",
+    prompt: `Top-down photograph of an elegant cream-colored A5 card lying on a dark wooden desk surface. The card has "KLANTBELOFTE" printed in gold foil serif lettering at the top. Below are 5 numbered principles in clean Dutch text, each with a small teal diamond bullet point. The card has a thin gold border and a faint watermark of a shield logo. A vintage brass paperweight sits on one corner. The paper has a luxurious heavy cotton texture. Warm side lighting from the left. Photorealistic, high-end editorial style. Shot from directly above.`,
+  },
+  // ─── Ch1: De Werkelijkheid ───
+  {
+    name: "img-value-leakage",
+    prompt: `Top-down photograph of a large printed process diagram (A3 size) lying on a dark wooden desk. The diagram shows a "VALUE LEAKAGE MAP" of an insurance claims process. Red circles and crosses mark friction points. Green arrows show ideal flow, red dashed arrows show delays and handoffs. Handwritten Dutch annotations in red and blue marker in the margins: "4 dagen wachttijd", "handmatig", "geen koppeling", "wie beslist?". Several small yellow post-it notes stuck on top with extra comments. The paper is slightly crumpled from being handled in workshops. A red marker and blue pen lie beside it. Warm lighting, photorealistic. Shot from directly above.`,
   },
   {
-    name: "img-sophie-worry",
-    prompt: `A cinematic photograph of a woman (41, dark blonde hair, wearing a hospital gown over a cream sweater) sitting alone at a small table in a French hospital room. She is holding a phone pressed to her ear with one hand, while her other hand rests on scattered hospital paperwork on the table.
-
-We see her from a side angle — her profile is visible, looking down at the documents while she listens on the phone. Her expression is worried, uncertain. The paperwork in front of her includes French hospital invoices, forms with "FACTURE" and "CHU" headers, and a handwritten note that says "Couverture?" with a question mark.
-
-A pen lies across one document. The papers are slightly messy, overlapping — she's been trying to figure things out alone. The phone is pressed to her ear (we see the back of the phone, not the screen).
-
-The background is a hospital room — clinical, with soft evening light from a window. The mood is anxiety, bureaucratic overwhelm, and loneliness.
-
-Style: cinematic documentary photography, warm side-lighting, shallow depth of field with Sophie and papers in focus. The composition emphasizes the contrast between the human moment (phone call) and the cold paperwork. Aspect ratio: landscape 4:3.`,
+    name: "img-interview-notes",
+    prompt: `Top-down photograph of a leather-bound notebook lying open on a dark wooden desk. The left page has the heading "INTERVIEW — Medewerker Claims" written in neat handwriting. Below are interview notes in Dutch with bullet points, underlined key phrases, and margin annotations with exclamation marks. The right page has a simple hand-drawn diagram of a process flow with boxes and arrows. A nice pen rests in the spine. The notebook looks well-used with slightly worn edges. Warm desk lamp lighting, photorealistic, intimate documentary feel. Shot from directly above.`,
+  },
+  // ─── Ch2: Het Eerste Bewijs ───
+  {
+    name: "img-experimentkaart",
+    prompt: `Top-down photograph of a structured A4 document on a dark wooden desk. The document is titled "EXPERIMENT #1" in bold monospace type. It's divided into clear sections: "HYPOTHESE", "USE-CASE", "RESULTAAT", "VOLGENDE STAP" — each with handwritten Dutch text filled in with blue pen. Green checkmarks next to completed items. A red "BEWEZEN" stamp in the bottom right corner. The document has a clean, scientific feel but with human touches — handwritten notes, a coffee ring stain in one corner. A small graph is sketched in the results section showing improvement. Warm lighting, photorealistic. Shot from directly above.`,
   },
   {
-    name: "img-sophie-happy",
-    prompt: `A warm, joyful summer photograph. A woman (41, shoulder-length dark blonde hair, tanned skin, wearing a light linen blouse) is sitting at an outdoor table on a sunny terrace in summer. She is laughing genuinely, her head tilted slightly back with pure happiness. 
-
-Around her at the table: her husband (mid-40s, casual polo shirt) and two children (a girl around 12 and a boy around 9). They are having a summer lunch together — a carafe of rosé, colorful salads, bread. The children are laughing too.
-
-The setting is a garden terrace in Belgium — green hedges, a parasol casting dappled shadows, a typical Belgian brick house partially visible in the background. Everything radiates warmth, relief, gratitude — the feeling that everything turned out well.
-
-The woman (Sophie) is the clear subject — she is in focus while the family is slightly soft. Her expression says: "I made it through. Life is beautiful."
-
-Style: candid family photography, golden hour warm light, shallow depth of field on Sophie, slightly overexposed highlights for a dreamy summer feel. Color palette: warm golds, soft greens, linen whites. Natural, unposed, intimate. Aspect ratio: landscape 4:3.`,
+    name: "img-klantfeedback",
+    prompt: `Top-down photograph of a printed feedback card on a dark wooden desk. The card is titled "KLANTFEEDBACK — Pilot" in sans-serif type. Below are 3 quoted responses from customers in Dutch, each in a different handwriting style, with satisfaction scores (8.2, 9.1, 7.8) circled in green. Small star ratings are drawn next to each quote. The card has a professional but personal feel — printed template with handwritten responses. A paperclip attaches a small note saying "Sophie's profiel past hier". Warm lighting, photorealistic. Shot from directly above.`,
+  },
+  // ─── Ch3: Het Fundament ───
+  {
+    name: "img-golden-record",
+    prompt: `Top-down photograph of a technical architecture diagram printed on white A3 paper, lying on a dark wooden desk. The diagram shows a "GOLDEN RECORD" data model at the center — a golden hexagon labeled "Sophie De Winter" with data fields radiating outward: Polis, Claims, Contacthistorie, Partners, Documenten. Each connected by clean lines to source systems drawn as grey rectangles. Dutch labels throughout. The design is clean and technical but with hand-drawn red annotations: "SINGLE SOURCE OF TRUTH" circled, arrows added in marker. A ruler and mechanical pencil lie beside it. Cool-warm mixed lighting, photorealistic, technical document feel. Shot from directly above.`,
+  },
+  // ─── Ch4: Mens & AI ───
+  {
+    name: "img-memo-medewerker",
+    prompt: `Top-down photograph of a handwritten memo on lined A4 paper, lying on a dark wooden desk. The memo is written in Dutch in neat but personal handwriting with a blue ballpoint pen. The heading reads "Notitie — Thomas V." followed by a personal note expressing concern about changing roles: worries about AI replacing judgment, questions about responsibility, but also cautious optimism about spending more time on complex cases. Some words are underlined for emphasis. A few lines are crossed out and rewritten. The paper has a slight fold mark as if it was in a pocket. A coffee mug casts a shadow at the edge. Warm intimate lighting, photorealistic, deeply personal feel. Shot from directly above.`,
+  },
+  {
+    name: "img-trainingskaart",
+    prompt: `Top-down photograph of a laminated training card (A5 size) lying on a dark wooden desk. The card is titled "BESLISKAART — Wanneer grijp ik in?" in bold sans-serif type. Below is a simple decision tree flowchart with yes/no branches, showing when a human should override AI decisions. Green boxes for "AI beslist", orange for "Menselijke review", red for "Escalatie". Dutch labels at each decision point. The card is laminated with rounded corners and has a small badge/logo in the corner. It looks like something that would hang at a workstation. Clean professional design, warm lighting, photorealistic. Shot from directly above.`,
+  },
+  // ─── Ch5: Schaal ───
+  {
+    name: "img-control-room",
+    prompt: `Top-down photograph of a printed dashboard screenshot lying on a dark wooden desk. The printout shows a "CONTROL ROOM" operations dashboard with real-time metrics: claims processed today (847), STP rate (82%), average handling time (1h 42m), open exceptions (23), human overrides (7). Gauges, bar charts, and a small map of Belgium with regional activity dots. The printout has handwritten notes in the margins: "target gehaald!", "hier nog aandacht" with arrows. A highlighter pen and paperclip beside it. Professional data visualization style with teal and navy color scheme. Warm lighting, photorealistic. Shot from directly above.`,
+  },
+  {
+    name: "img-incident-report",
+    prompt: `Top-down photograph of an official-looking incident report form on a dark wooden desk. The form is titled "INCIDENT RAPPORT — IR-2029-0047" in monospace type. Sections include: Datum, Ernst, Beschrijving, Oorzaak, Correctie, Preventie. Each section is filled in with typed Dutch text describing a case where the AI incorrectly classified a claim. A red "OPGELOST" stamp is visible. The form has a severity indicator showing "MEDIUM" in orange. Paper-clipped to it is a small sticky note reading "Heeft geleid tot rule update #218". Clean bureaucratic design but with human touches. Warm lighting, photorealistic. Shot from directly above.`,
+  },
+  {
+    name: "img-go-nogo",
+    prompt: `Top-down photograph of a formal A4 decision document on a dark wooden desk. The document is titled "GO / NO-GO BESLUIT" in large bold type with a date "2029-Q3". Below is a checklist of criteria with green checkmarks and one orange "VOORWAARDELIJK" mark. Categories include: Technisch, Operationeel, Juridisch, Change, Business Case. At the bottom, a signature line with an actual signature in black ink, and a large green "GO" stamp. The document has a professional, corporate feel with a subtle watermark. Clean lighting, photorealistic. Shot from directly above.`,
   },
 ];
+
 
 async function generateImage(job: ImageJob) {
   console.log(`🎨 Generating: ${job.name}...`);
