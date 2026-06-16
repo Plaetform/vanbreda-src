@@ -479,8 +479,8 @@ function renderPageHTML(n: number): string {
   const isAutoReveal = needed === 0
   const isLastPage = n === chapters.length - 1
 
-  // For auto-reveal pages, content is always fully shown
-  const effectiveDrops = isAutoReveal ? 3 : drops
+  // For auto-reveal pages or completed pages, show all content
+  const effectiveDrops = isAutoReveal || (drops >= needed) ? 3 : drops
   const stepClass = `desk-page__paper--step-${Math.min(effectiveDrops, 3)}`
   const isComplete = effectiveDrops >= needed && needed > 0
   const completeClass = isComplete ? 'desk-page__paper--complete' : ''
