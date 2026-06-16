@@ -486,22 +486,25 @@ function renderPageHTML(n: number): string {
   const completeClass = isComplete ? 'desk-page__paper--complete' : ''
   const autoClass = isAutoReveal ? 'desk-page__paper--auto' : ''
 
-  // Drop zone content
-  let dropContent: string
-  if (isAutoReveal && !isLastPage) {
-    dropContent = '<button class="desk-page__next" id="page-next">Verder →</button>'
-  } else if (isAutoReveal && isLastPage) {
-    dropContent = ''
-  } else if (effectiveDrops >= needed) {
-    dropContent = '<div class="desk-page__drop-done">✓ Pagina compleet</div><button class="desk-page__next" id="page-next">Volgende fase →</button>'
-  } else {
-    dropContent = `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${drops}/${needed}</div>`
-  }
+  // Show drop zone only when drops still needed
+  const showDrop = needed > 0 && drops < needed
+  const dropHTML = showDrop
+    ? `<div class="desk-page__drop" id="page-drop">
+         <div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${drops}/${needed}</div>
+       </div>`
+    : ''
 
-  // Added label
-  const addedLabel = isAutoReveal
-    ? (isLastPage ? 'Dossier afgerond' : 'Lees en ga verder')
-    : (effectiveDrops >= needed ? 'Toegevoegd aan het dossier' : 'Bouw deze pagina op')
+  // Show nav sidebar when page has content visible
+  const showNav = effectiveDrops >= needed || isAutoReveal
+  const prevDisabled = n === 0 ? ' desk-page__nav-btn--disabled' : ''
+  const nextDisabled = n === chapters.length - 1 ? ' desk-page__nav-btn--disabled' : ''
+  const navHTML = showNav
+    ? `<div class="desk-page__nav-sidebar">
+         <button class="desk-page__nav-btn${prevDisabled}" id="page-prev" title="Vorig hoofdstuk">‹</button>
+         <div class="desk-page__nav-counter">${n + 1}<span>/</span>${chapters.length}</div>
+         <button class="desk-page__nav-btn${nextDisabled}" id="page-next-ch" title="Volgend hoofdstuk">›</button>
+       </div>`
+    : ''
 
   return `
     <div class="desk-page" id="desk-page">
@@ -524,10 +527,9 @@ function renderPageHTML(n: number): string {
         <div class="desk-page__reveal desk-page__reveal--3">
           <div class="desk-page__footnote">${cp.footnote}</div>
         </div>
-        <div class="desk-page__drop" id="page-drop">
-          ${dropContent}
-        </div>
+        ${dropHTML}
       </div>
+      ${navHTML}
     </div>`
 }
 
@@ -1142,17 +1144,33 @@ function bindPageEvents() {
     const dropZone = document.getElementById('page-drop')
     if (dropZone) {
       if (newDrops >= needed) {
-        dropZone.innerHTML = '<div class="desk-page__drop-done">✓ Pagina compleet</div><button class="desk-page__next" id="page-next">Volgende fase →</button>'
+        // Hide drop zone, show nav sidebar
+        dropZone.style.display = 'none'
         paper.classList.add('desk-page__paper--complete')
-        document.getElementById('page-next')?.addEventListener('click', () => switchChapter(currentChapter + 1))
+        
+        // Inject nav sidebar
+        const page = paper.closest('.desk-page')
+        if (page && !page.querySelector('.desk-page__nav-sidebar')) {
+          const prevDis = currentChapter === 0 ? ' desk-page__nav-btn--disabled' : ''
+          const nextDis = currentChapter === chapters.length - 1 ? ' desk-page__nav-btn--disabled' : ''
+          page.insertAdjacentHTML('beforeend', `
+            <div class="desk-page__nav-sidebar">
+              <button class="desk-page__nav-btn${prevDis}" id="page-prev" title="Vorig hoofdstuk">‹</button>
+              <div class="desk-page__nav-counter">${currentChapter + 1}<span>/</span>${chapters.length}</div>
+              <button class="desk-page__nav-btn${nextDis}" id="page-next-ch" title="Volgend hoofdstuk">›</button>
+            </div>`)
+          document.getElementById('page-prev')?.addEventListener('click', () => switchChapter(currentChapter - 1))
+          document.getElementById('page-next-ch')?.addEventListener('click', () => switchChapter(currentChapter + 1))
+        }
       } else {
         dropZone.innerHTML = `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${newDrops}/${needed}</div>`
       }
     }
   })
 
-  // Next button (if page already complete on load)
-  document.getElementById('page-next')?.addEventListener('click', () => switchChapter(currentChapter + 1))
+  // Nav sidebar buttons (when rendered from template)
+  document.getElementById('page-prev')?.addEventListener('click', () => switchChapter(currentChapter - 1))
+  document.getElementById('page-next-ch')?.addEventListener('click', () => switchChapter(currentChapter + 1))
 }
 
 // ─── Chapter Switching ───
