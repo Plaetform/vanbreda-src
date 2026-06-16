@@ -264,6 +264,7 @@ function renderDesk(): string {
     <div class="splash__label">VERTROUWELIJK DOSSIER</div>
     <div class="splash__title">AFKOMSTIG UIT 2030</div>
     <div class="splash__subtitle">Open alleen als je bereid bent de toekomst te veranderen.</div>
+    <div class="splash__sound-notice" id="splash-sound">🔊 Zet je geluid aan voor de volledige ervaring</div>
     <button class="splash__btn" id="splash-btn">Maak kennis met Sophie →</button>
   </div>
 </div>
@@ -462,6 +463,8 @@ function bindEvents() {
       const icon = document.getElementById('letter-audio-icon')
       if (icon) icon.textContent = '⏸'
     }
+    // Lower background music
+    if (audioEl) audioEl.volume = 0.15
   }
 
   function closeLetter() {
@@ -479,6 +482,8 @@ function bindEvents() {
     // Clear photo timers
     photoTimers.forEach(t => clearTimeout(t))
     photoTimers = []
+    // Restore background music volume
+    if (audioEl) audioEl.volume = 0.4
   }
 
   // Close letter
