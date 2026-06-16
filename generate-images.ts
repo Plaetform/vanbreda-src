@@ -84,6 +84,23 @@ const jobs: ImageJob[] = [
     name: "img-fundamenten",
     prompt: `Top-down photograph of an A5 checklist card on a dark wooden desk. The card is titled "FUNDAMENTEN — Prerequisites" in clean sans-serif type. Below is a structured checklist of 6 foundational requirements, each with a checkbox. Four are checked in green ink, two are circled in orange with "IN PROGRESS" written beside them. Dutch labels: "Master data", "Identiteit", "Integratie", "Security", "Beslisregels", "Audit trail". The card has a small green checkmark logo in the corner. Clean professional design with handwritten progress marks. Warm lighting, photorealistic. Shot from directly above.`,
   },
+  // ─── Ch6: Sophie / Het moment van de waarheid ───
+  {
+    name: "img-faxbericht",
+    prompt: `Top-down photograph of a fax transmission printout on a dark wooden desk. The fax header reads "VANBREDA HEALTH CARE — AI BESLISSINGSRAPPORT" with a timestamp and fax number. The body contains a structured decision report: "Patiënt: Sophie De Winter", "Claim: HC-2030-004781", with sections for AI-analyse, confidence score (87%), and a red flagged section "ESCALATIE VEREIST — Menselijke review". A handwritten note in red pen says "Thomas → review voor 15:00". The fax paper has the typical thermal paper appearance with slightly curled edges. Warm desk lighting, photorealistic. Shot from directly above.`,
+  },
+  {
+    name: "img-claimbrief",
+    prompt: `Top-down photograph of a formal business letter on premium cream stationery lying on a dark wooden desk. The letterhead shows a Vanbreda-style health insurance logo. Addressed to "Mevr. Sophie De Winter, Brasschaat". The letter text in Dutch confirms claim approval with one exception noted. A green "GOEDGEKEURD" stamp is visible. The bottom has a signature in blue ink and a date stamp. A paperclip holds a small yellow sticky note reading "Uitzondering: zie bijlage". The letter feels official but personal. Warm lighting, photorealistic. Shot from directly above.`,
+  },
+  {
+    name: "img-interne-nota",
+    prompt: `Top-down photograph of an internal memo document on a dark wooden desk. The document is titled "INTERNE NOTA — OPEN VRAGEN" in clean monospace type. Below is a list of 5 strategic questions in Dutch, each with bullet points for context. Some items have handwritten annotations in the margins: checkmarks, question marks, and short Dutch comments like "bespreken met team" and "prioriteit". The document has a confidential watermark and a "DRAFT" stamp in grey. A red pen and reading glasses are partially visible at the edge. Professional but working-document feel. Warm lighting, photorealistic. Shot from directly above.`,
+  },
+  {
+    name: "img-indexkaart",
+    prompt: `Top-down photograph of a manila index card (A5 size) lying on a dark wooden desk. The card is a structured case file card with printed fields filled in by hand: "Naam: De Winter, Sophie", "Geboortedatum: 12-03-1989", "Polisnr: VB-HC-89247", "Casus: Spoedopname Lyon", "Status: In behandeling". The card has a small passport-style photo clipped to the top-right corner. Colored tabs on the right edge indicate category. Some fields have been updated with a different colored pen. The card has a slightly worn, handled feel. Warm lighting, photorealistic. Shot from directly above.`,
+  },
 ];
 
 

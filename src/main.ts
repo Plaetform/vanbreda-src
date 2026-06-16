@@ -432,6 +432,16 @@ const deskAssets: DeskAsset[] = [
   // ── Ch6: Sophie ──
   { id: 'sophie', label: 'Sophie De Winter', sublabel: '41 · Brasschaat — voor haar bouwen we dit.',
     image: '/img-cover-sophie.png', top: '55%', left: '55%', rotation: -2, width: '12vw', style: 'polaroid', chapters: [6] },
+  { id: 'faxbericht', label: 'Faxbericht', sublabel: 'AI-beslissing & escalatie — menselijke review vereist.',
+    image: '/img-faxbericht.png', top: '8%', left: '74%', rotation: -4, width: '12vw', style: 'document', chapters: [6] },
+  { id: 'claimbrief', label: 'Claimbrief', sublabel: 'Aan Sophie — goedgekeurd, met één uitzondering.',
+    image: '/img-claimbrief.png', top: '25%', left: '76%', rotation: 4, width: '11vw', style: 'document', chapters: [6] },
+  { id: 'interne-nota', label: 'Interne Nota', sublabel: 'Open vragen — wat we samen moeten begrijpen.',
+    image: '/img-interne-nota.png', top: '55%', left: '6%', rotation: 5, width: '12vw', style: 'document', chapters: [6] },
+  { id: 'indexkaart', label: 'Indexkaart', sublabel: 'De casus op één fiche — wie, wat, waar, en waarom.',
+    image: '/img-indexkaart.png', top: '8%', left: '6%', rotation: -3, width: '11vw', style: 'document', chapters: [6] },
+  { id: 'sophie-hospital', label: 'Sophie in Lyon', sublabel: 'De spoedopname die alles in gang zette.',
+    image: '/img-sophie-hospital.png', top: '30%', left: '4%', rotation: 3, width: '11vw', style: 'polaroid', chapters: [6] },
 ]
 
 const deskDocAssets: DeskDocAsset[] = [
@@ -444,14 +454,6 @@ const deskDocAssets: DeskDocAsset[] = [
     icon: '💶', top: '75%', left: '45%', rotation: -5, width: '7vw', docStyle: 'document', render: asset11, chapters: [5] },
 
   // Ch6: Sophie
-  { id: 'doc-faxbericht', label: 'Faxbericht', sublabel: 'AI-beslissing & escalatie — menselijke review vereist.',
-    icon: '📠', top: '8%', left: '76%', rotation: -4, width: '7vw', docStyle: 'document', render: asset02, chapters: [6] },
-  { id: 'doc-claimbrief', label: 'Claimbrief', sublabel: 'Aan Sophie — goedgekeurd, met één uitzondering.',
-    icon: '✉️', top: '25%', left: '78%', rotation: 4, width: '7vw', docStyle: 'letter', render: asset03, chapters: [6] },
-  { id: 'doc-nota', label: 'Interne Nota', sublabel: 'Open vragen — wat we samen moeten begrijpen.',
-    icon: '📄', top: '75%', left: '8%', rotation: 5, width: '7vw', docStyle: 'document', render: asset09, chapters: [6] },
-  { id: 'doc-indexkaart', label: 'Indexkaart', sublabel: 'De casus op één fiche — wie, wat, waar, en waarom.',
-    icon: '📋', top: '75%', left: '25%', rotation: -3, width: '7vw', docStyle: 'card', render: asset01, chapters: [6] },
 ]
 
 // ─── State ───
@@ -1075,6 +1077,7 @@ function bindPageEvents() {
   // Close button → show folder again
   document.getElementById('page-close')?.addEventListener('click', () => {
     pageMinimized = true
+    restoreAssetPositions()
     const center = document.getElementById('desk-center')
     if (center) {
       center.innerHTML = renderFolderHTML('Klik om te openen')
@@ -1196,17 +1199,45 @@ function switchChapter(n: number) {
     dot.classList.toggle('chapter-nav__dot--active', i === n)
   })
 
-  // Fade assets in/out and push aside
-  document.querySelectorAll('[data-chapters]').forEach(el => {
+  // Fade assets in/out + smoothly push aside
+  document.querySelectorAll('.desk-asset[data-chapters]').forEach(el => {
     const chs = (el.getAttribute('data-chapters') || '').split(',').map(Number)
     const htmlEl = el as HTMLElement
     if (chs.includes(n)) {
       htmlEl.style.opacity = '1'
       htmlEl.style.pointerEvents = 'auto'
+
+      // Smoothly push to sides (CSS transition handles the animation)
+      const origLeft = el.getAttribute('data-orig-left')
+      if (origLeft) {
+        const leftVal = parseFloat(origLeft)
+        if (leftVal < 35) {
+          htmlEl.style.left = `${Math.max(1, leftVal - 14)}%`
+        } else {
+          htmlEl.style.left = `${Math.min(90, leftVal + 10)}%`
+        }
+      }
     } else {
       htmlEl.style.opacity = '0'
       htmlEl.style.pointerEvents = 'none'
     }
+  })
+
+  // Also handle doc assets
+  document.querySelectorAll('.desk-doc[data-chapters]').forEach(el => {
+    const chs = (el.getAttribute('data-chapters') || '').split(',').map(Number)
+    const htmlEl = el as HTMLElement
+    htmlEl.style.opacity = chs.includes(n) ? '1' : '0'
+    htmlEl.style.pointerEvents = chs.includes(n) ? 'auto' : 'none'
+  })
+}
+
+// Restore asset positions when page is minimized
+function restoreAssetPositions() {
+  document.querySelectorAll('.desk-asset[data-orig-left]').forEach(el => {
+    const htmlEl = el as HTMLElement
+    const origLeft = el.getAttribute('data-orig-left')
+    if (origLeft) htmlEl.style.left = origLeft
   })
 }
 
