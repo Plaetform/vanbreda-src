@@ -8,7 +8,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@microsoft/applicationinsights-web": "^3.3.0"
+    "@google/genai": "^2.8.0",
+    "@microsoft/applicationinsights-web": "^3.3.0",
+    "dotenv": "^17.4.2"
   },
   "devDependencies": {
     "typescript": "^5.6.0",
