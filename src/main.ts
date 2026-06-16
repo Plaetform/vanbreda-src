@@ -445,23 +445,6 @@ let audioEl: HTMLAudioElement | null = null
 let droppedPerChapter = [0, 0, 0, 0, 0, 0, 0, 0]
 let pageMinimized = false
 
-// ─── SVG icons per chapter ───
-const chapterIcons = [
-  // 1: Shield/heart (belofte)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><path d="M32 8L10 18v16c0 12 10 20 22 24 12-4 22-12 22-24V18L32 8z"/><path d="M32 26c-3 0-6 3-6 6s3 6 6 6 6-3 6-6-3-6-6-6z" fill="#2C8C99" opacity=".15"/></svg>`,
-  // 2: Building blocks (kracht)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><rect x="8" y="36" width="20" height="20" rx="2" fill="#2C8C99" opacity=".08"/><rect x="36" y="36" width="20" height="20" rx="2" fill="#2C8C99" opacity=".08"/><rect x="22" y="16" width="20" height="20" rx="2" fill="#2C8C99" opacity=".12"/></svg>`,
-  // 3: Chain gap (grenzen)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><ellipse cx="20" cy="32" rx="12" ry="8"/><ellipse cx="44" cy="32" rx="12" ry="8"/><line x1="28" y1="28" x2="36" y2="28" stroke-dasharray="2 3"/><line x1="28" y1="36" x2="36" y2="36" stroke-dasharray="2 3"/></svg>`,
-  // 4: Network nodes (realiteit)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><circle cx="32" cy="16" r="6" fill="#2C8C99" opacity=".1"/><circle cx="14" cy="44" r="6" fill="#2C8C99" opacity=".1"/><circle cx="50" cy="44" r="6" fill="#2C8C99" opacity=".1"/><line x1="32" y1="22" x2="14" y2="38"/><line x1="32" y1="22" x2="50" y2="38"/><line x1="20" y1="44" x2="44" y2="44"/></svg>`,
-  // 5: People (mens)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><circle cx="22" cy="20" r="7"/><circle cx="42" cy="20" r="7"/><path d="M8 48c0-8 6-14 14-14s14 6 14 14" fill="#2C8C99" opacity=".08"/><path d="M28 48c0-8 6-14 14-14s14 6 14 14" fill="#2C8C99" opacity=".08"/></svg>`,
-  // 6: Checkmark person (sophie)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><circle cx="32" cy="18" r="10"/><path d="M14 54c0-10 8-18 18-18s18 8 18 18" fill="#2C8C99" opacity=".08"/><path d="M24 34l6 6 12-12" stroke-width="3" stroke-linecap="round"/></svg>`,
-  // 8: Diamond (droom)
-  `<svg viewBox="0 0 64 64" fill="none" stroke="#2C8C99" stroke-width="2"><path d="M32 6L58 32 32 58 6 32z" fill="#2C8C99" opacity=".06"/><path d="M32 16L48 32 32 48 16 32z" fill="#2C8C99" opacity=".1"/><circle cx="32" cy="32" r="4" fill="#2C8C99" opacity=".2"/></svg>`,
-]
 
 // ─── Page HTML helper ───
 function renderPageHTML(n: number): string {
