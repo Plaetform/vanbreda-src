@@ -85,6 +85,170 @@ const chapters = [
   },
 ]
 
+// ─── Chapter Dossier Pages (center of desk) ───
+const chapterPages = [
+  {
+    pageNum: 1,
+    title: 'De klantbelofte',
+    subtitle: 'Eén vloeiende dienstverlening op een kwetsbaar moment',
+    content: `
+      <ul class="cp-list">
+        <li>Sophie vertelt haar verhaal <strong>één keer</strong></li>
+        <li>Ze weet steeds waar zij aan toe is</li>
+        <li>Ze krijgt snel duidelijkheid over eenvoudige onderdelen</li>
+        <li>Ze krijgt menselijke uitleg wanneer oordeel nodig is</li>
+        <li>Ze hoeft niet zelf tussen organisaties te coördineren</li>
+      </ul>`,
+    footnote: 'Dit is het criterium waaraan iedere ontwerpkeuze wordt getoetst.',
+  },
+  {
+    pageNum: 2,
+    title: 'De huidige werkelijkheid',
+    subtitle: 'Waar de keten vandaag waarde kan verliezen',
+    content: `
+      <ul class="cp-list cp-list--numbered">
+        <li><strong>Onvolledige of versnipperde context</strong> — informatie zit in verschillende systemen, niet bij de beslisser</li>
+        <li><strong>Verborgen handmatig werk</strong> — medewerkers compenseren stilzwijgend voor systeemgaten</li>
+        <li><strong>Overdrachten tussen teams en systemen</strong> — elke overdracht is een kans op vertraging en fout</li>
+        <li><strong>Impliciete besliskennis</strong> — ervaren medewerkers weten hoe het moet, maar het staat nergens</li>
+        <li><strong>Uitzonderingen zonder end-to-end eigenaarschap</strong> — niemand voelt zich verantwoordelijk voor het geheel</li>
+      </ul>`,
+    footnote: 'De grootste frictie zit vaak niet in één taak, maar tussen de onderdelen van de keten.',
+  },
+  {
+    pageNum: 3,
+    title: 'De bestaande bouwstenen',
+    subtitle: 'Waarop Vanbreda voortbouwt',
+    content: `
+      <div class="cp-columns">
+        <div class="cp-col">
+          <div class="cp-col__title">Claims</div>
+          <ul class="cp-col__list">
+            <li>55% volumegewogen STP</li>
+            <li>Digitale intake</li>
+            <li>OCR-capability</li>
+          </ul>
+        </div>
+        <div class="cp-col">
+          <div class="cp-col__title">Communicatie</div>
+          <ul class="cp-col__list">
+            <li>Voice AI</li>
+            <li>Intentclassificatie</li>
+            <li>Contextverrijking</li>
+            <li>Conceptantwoorden</li>
+          </ul>
+        </div>
+        <div class="cp-col">
+          <div class="cp-col__title">B2B / B2I</div>
+          <ul class="cp-col__list">
+            <li>87% STP aansluitingen</li>
+            <li>Digitale interfaces</li>
+            <li>Partner- en beheerprocessen</li>
+          </ul>
+        </div>
+      </div>`,
+    footnote: 'De volgende stap is niet opnieuw beginnen, maar bewezen capabilities verbinden.',
+  },
+  {
+    pageNum: 4,
+    title: 'De ruggengraat',
+    subtitle: 'Van gecontroleerde autonomie',
+    content: `
+      <div class="cp-grid">
+        <div class="cp-grid__item">Gedeelde data</div>
+        <div class="cp-grid__item">Consistente identiteit</div>
+        <div class="cp-grid__item">Expliciete beslisregels</div>
+        <div class="cp-grid__item">Modulaire integratie</div>
+        <div class="cp-grid__item">Workflow &amp; case management</div>
+        <div class="cp-grid__item">Herleidbaarheid</div>
+        <div class="cp-grid__item">Toegangsbeheer</div>
+        <div class="cp-grid__item">Auditability</div>
+      </div>`,
+    footnote: 'Autonomie begint niet bij een agent, maar bij een betrouwbare ruggengraat.',
+  },
+  {
+    pageNum: 5,
+    title: 'De nieuwe manier van werken',
+    subtitle: 'Mens en AI in balans',
+    content: `
+      <div class="cp-levels">
+        <div class="cp-level cp-level--1">
+          <div class="cp-level__label">AI ondersteunt</div>
+          <div class="cp-level__desc">De mens beslist.</div>
+        </div>
+        <div class="cp-level cp-level--2">
+          <div class="cp-level__label">AI handelt binnen grenzen</div>
+          <div class="cp-level__desc">De mens monitort en behandelt uitzonderingen.</div>
+        </div>
+        <div class="cp-level cp-level--3">
+          <div class="cp-level__label">AI handelt autonoom</div>
+          <div class="cp-level__desc">De mens bewaakt beleid, kwaliteit en prestaties.</div>
+        </div>
+      </div>
+      <div class="cp-roles">
+        <span>Process Owner</span><span>Exception Specialist</span><span>Data Steward</span>
+        <span>Model Steward</span><span>Customer Advisor</span><span>Knowledge Owner</span>
+      </div>`,
+    footnote: 'Autonomie betekent niet minder verantwoordelijkheid, maar explicietere verantwoordelijkheid.',
+  },
+  {
+    pageNum: 6,
+    title: 'Besturing en schaal',
+    subtitle: 'Van use-case naar bestuurbare operatie',
+    content: `
+      <div class="cp-cycle">
+        <span>Begrijpen</span><span class="cp-cycle__arrow">→</span>
+        <span>Ontwerpen</span><span class="cp-cycle__arrow">→</span>
+        <span>Leveren</span><span class="cp-cycle__arrow">→</span>
+        <span>Meten</span><span class="cp-cycle__arrow">→</span>
+        <span>Leren</span><span class="cp-cycle__arrow">→</span>
+        <span>Opschalen</span>
+      </div>
+      <div class="cp-grid cp-grid--compact">
+        <div class="cp-grid__item">End-to-end orkestratie</div>
+        <div class="cp-grid__item">SLA-monitoring</div>
+        <div class="cp-grid__item">Exception management</div>
+        <div class="cp-grid__item">Modelmonitoring</div>
+        <div class="cp-grid__item">TCO &amp; value tracking</div>
+        <div class="cp-grid__item">Feedbackloops</div>
+        <div class="cp-grid__item">Herbruikbare capabilities</div>
+        <div class="cp-grid__item">Continue verbetering</div>
+      </div>`,
+    footnote: 'Waarde vroeg bewijzen. Fundamenten gericht versterken. Beheerst opschalen.',
+  },
+  {
+    pageNum: 7,
+    title: 'Ons antwoord op de RFI',
+    subtitle: 'Eén samenhangend Health Care operating model',
+    content: `
+      <div class="cp-reveal">
+        <div class="cp-reveal__section">
+          <div class="cp-reveal__heading">De belofte</div>
+          <div class="cp-reveal__text">Eén vloeiende ervaring voor Sophie.</div>
+        </div>
+        <div class="cp-reveal__section">
+          <div class="cp-reveal__heading">Drie pijlers</div>
+          <div class="cp-reveal__pillars">
+            <span>Claims</span><span>Communicatie</span><span>B2B/B2I</span>
+          </div>
+        </div>
+        <div class="cp-reveal__section">
+          <div class="cp-reveal__heading">De verbindende laag</div>
+          <div class="cp-reveal__tags">
+            <span>Orkestratie</span><span>Data &amp; kennis</span><span>Beslisregels</span><span>Case management</span>
+          </div>
+        </div>
+        <div class="cp-reveal__section">
+          <div class="cp-reveal__heading">De besturing</div>
+          <div class="cp-reveal__tags">
+            <span>Menselijk oordeel</span><span>Governance</span><span>Monitoring</span><span>Continue verbetering</span>
+          </div>
+        </div>
+      </div>`,
+    footnote: 'Alles wat is ontworpen, getest en veranderd, komt samen in dit antwoord.',
+  },
+]
+
 // ─── Data ───
 const dossierPages = [
   { label: 'Cover',           render: renderCover },
@@ -247,6 +411,7 @@ function renderDesk(): string {
   `).join('')
 
   const ch = chapters[currentChapter]
+  const cp = chapterPages[currentChapter]
 
   const pageDots = dossierPages.map((_, i) =>
     `<div class="viewer__dot ${i === currentPage ? 'viewer__dot--active' : ''}" data-page="${i}"></div>`
@@ -269,11 +434,6 @@ function renderDesk(): string {
   </div>
 </div>
 
-<div class="chapter-overlay" id="chapter-overlay">
-  <div class="chapter-overlay__question">${ch.question}</div>
-  <div class="chapter-overlay__quote">${ch.quote}</div>
-</div>
-
 <div class="desk" id="desk">
   <div class="desk__bg"></div>
   <div class="desk__vignette"></div>
@@ -282,15 +442,36 @@ function renderDesk(): string {
   <div class="desk-peek desk-peek--1" style="top:42%;left:47%;transform:rotate(-12deg);"></div>
   <div class="desk-peek desk-peek--2" style="top:44%;left:54%;transform:rotate(8deg);"></div>
   <div class="desk-peek desk-peek--3" style="top:58%;left:46%;transform:rotate(14deg);"></div>
-  <div class="desk-folder ${dossierOpen ? 'desk-folder--hidden' : ''}" id="desk-folder">
-    <div class="desk-folder__front">
-      <div class="desk-folder__stamp">2030</div>
-      <div class="desk-folder__title">DOSSIER<br>2030</div>
-      <div class="desk-folder__sub">TERUGGESTUURD NAAR 2026</div>
-      <div class="desk-folder__label">VERTROUWELIJK</div>
+
+  <!-- Central dossier: closed folder OR open page -->
+  <div class="desk-center" id="desk-center">
+    ${dossierOpen ? `
+    <div class="desk-page" id="desk-page">
+      <div class="desk-page__added">Toegevoegd aan het dossier</div>
+      <div class="desk-page__paper">
+        <div class="desk-page__header">
+          <div class="desk-page__number">Pagina ${cp.pageNum} van 7</div>
+          <div class="desk-page__title">${cp.title}</div>
+          <div class="desk-page__subtitle">${cp.subtitle}</div>
+        </div>
+        <div class="desk-page__body">${cp.content}</div>
+        <div class="desk-page__footnote">${cp.footnote}</div>
+      </div>
+      <div class="desk-page__question">${ch.question}</div>
     </div>
-    <div class="desk-folder__hint">Klik om te openen</div>
+    ` : `
+    <div class="desk-folder" id="desk-folder">
+      <div class="desk-folder__front">
+        <div class="desk-folder__stamp">HEALTH CARE 2030</div>
+        <div class="desk-folder__title">AE × Vanbreda</div>
+        <div class="desk-folder__sub">Status: in reconstructie</div>
+        <div class="desk-folder__label">VERTROUWELIJK</div>
+      </div>
+      <div class="desk-folder__hint">Klik om het dossier te openen</div>
+    </div>
+    `}
   </div>
+
   <div class="desk-brief" id="desk-brief">
     <div class="desk-brief__envelope">
       <div class="desk-brief__to">Sophie De Winter</div>
@@ -499,15 +680,12 @@ function bindEvents() {
     }
   })
 
-  // Letter continue → close letter, open dossier
+  // Letter continue → close letter, open dossier inline
   document.getElementById('letter-continue')?.addEventListener('click', () => {
     closeLetter()
     setTimeout(() => {
       dossierOpen = true
-      currentPage = 0
-      updateViewer()
-      document.getElementById('viewer')?.classList.add('viewer--open')
-      document.getElementById('desk-folder')?.classList.add('desk-folder--hidden')
+      switchChapter(0)
     }, 400)
   })
 
@@ -542,13 +720,10 @@ function bindEvents() {
     })
   })
 
-  // Open dossier
+  // Open dossier (first click on closed folder)
   document.getElementById('desk-folder')?.addEventListener('click', () => {
     dossierOpen = true
-    currentPage = 0
-    updateViewer()
-    document.getElementById('viewer')?.classList.add('viewer--open')
-    document.getElementById('desk-folder')?.classList.add('desk-folder--hidden')
+    switchChapter(currentChapter)
   })
 
   // Close dossier
@@ -735,17 +910,33 @@ function switchChapter(n: number) {
   
   currentChapter = n
 
-  // Update question/quote overlay
+  // Open dossier if still closed
+  if (!dossierOpen) {
+    dossierOpen = true
+  }
+
+  // Update central dossier page
   const ch = chapters[n]
-  const overlay = document.getElementById('chapter-overlay')
-  if (overlay) {
-    overlay.classList.add('chapter-overlay--transition')
+  const cp = chapterPages[n]
+  const center = document.getElementById('desk-center')
+  if (center) {
+    center.style.opacity = '0'
     setTimeout(() => {
-      const q = overlay.querySelector('.chapter-overlay__question')
-      const qu = overlay.querySelector('.chapter-overlay__quote')
-      if (q) q.textContent = ch.question
-      if (qu) qu.textContent = ch.quote
-      overlay.classList.remove('chapter-overlay--transition')
+      center.innerHTML = `
+        <div class="desk-page" id="desk-page">
+          <div class="desk-page__added">Toegevoegd aan het dossier</div>
+          <div class="desk-page__paper">
+            <div class="desk-page__header">
+              <div class="desk-page__number">Pagina ${cp.pageNum} van 7</div>
+              <div class="desk-page__title">${cp.title}</div>
+              <div class="desk-page__subtitle">${cp.subtitle}</div>
+            </div>
+            <div class="desk-page__body">${cp.content}</div>
+            <div class="desk-page__footnote">${cp.footnote}</div>
+          </div>
+          <div class="desk-page__question">${ch.question}</div>
+        </div>`
+      center.style.opacity = '1'
     }, 300)
   }
 
