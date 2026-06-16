@@ -9,6 +9,7 @@ import { renderCommunicatie } from './pages/communicatie'
 import { renderControlRoom } from './pages/control-room'
 import { renderFundamenten } from './pages/fundamenten'
 import { renderOpenVragen } from './pages/open-vragen'
+import { asset01, asset02, asset03, asset04, asset06, asset07, asset08, asset09, asset10, asset11 } from './pages/losse-assets'
 
 // ─── Types ───
 interface DeskAsset {
@@ -173,6 +174,67 @@ const deskAssets: DeskAsset[] = [
   },
 ]
 
+// ─── Document assets (HTML-rendered, on desk) ───
+interface DeskDocAsset {
+  id: string
+  label: string
+  sublabel: string
+  icon: string
+  top: string
+  left: string
+  rotation: number
+  width: string
+  docStyle: 'receipt' | 'letter' | 'postit' | 'card' | 'document'
+  render: () => string
+}
+
+const deskDocAssets: DeskDocAsset[] = [
+  // ── Left side: formal documents ──
+  {
+    id: 'doc-indexkaart', label: 'Indexkaart', sublabel: 'De casus op één fiche — wie, wat, waar, en waarom.',
+    icon: '📋', top: '8%', left: '4%', rotation: -3, width: '7vw', docStyle: 'card', render: asset01,
+  },
+  {
+    id: 'doc-claimbrief', label: 'Claimbrief', sublabel: 'Aan Sophie — wat is goedgekeurd, wat wordt nog nagekeken.',
+    icon: '✉️', top: '22%', left: '6%', rotation: 4, width: '7vw', docStyle: 'letter', render: asset03,
+  },
+  {
+    id: 'doc-factuur', label: 'AI Factuur', sublabel: 'Eén dossier, €0,86 aan AI-kosten.',
+    icon: '💶', top: '60%', left: '4%', rotation: -5, width: '7vw', docStyle: 'document', render: asset11,
+  },
+  // ── Top-right: strategy documents ──
+  {
+    id: 'doc-routekaart', label: 'Routekaart', sublabel: 'De keten in 9 stappen — met stempels voor autonomie.',
+    icon: '🗺️', top: '6%', left: '78%', rotation: 3, width: '7vw', docStyle: 'document', render: asset06,
+  },
+  {
+    id: 'doc-faxbericht', label: 'Faxbericht', sublabel: 'AI-beslissing & escalatie — menselijke review vereist.',
+    icon: '📠', top: '20%', left: '82%', rotation: -4, width: '7vw', docStyle: 'document', render: asset02,
+  },
+  {
+    id: 'doc-nota', label: 'Interne Nota', sublabel: 'Open vragen — wat we samen moeten begrijpen.',
+    icon: '📄', top: '40%', left: '80%', rotation: 5, width: '7vw', docStyle: 'document', render: asset09,
+  },
+  // ── Bottom center: fun items ──
+  {
+    id: 'doc-postit', label: 'Post-its', sublabel: 'Radiologiefactuur: patiënt-ID ontbreekt. Dubbele factuur geblokkeerd.',
+    icon: '📝', top: '80%', left: '35%', rotation: -3, width: '6.5vw', docStyle: 'postit', render: asset04,
+  },
+  {
+    id: 'doc-fundamenten', label: 'Fundamenten', sublabel: 'Wat moest hiervoor waar zijn?',
+    icon: '✅', top: '80%', left: '52%', rotation: 4, width: '7vw', docStyle: 'card', render: asset08,
+  },
+  // ── Bottom right: receipts cluster ──
+  {
+    id: 'doc-kassabon', label: 'Kassabon', sublabel: 'Control Room metrics — het hele verhaal op één bonnetje.',
+    icon: '🧾', top: '62%', left: '82%', rotation: -6, width: '5vw', docStyle: 'receipt', render: asset07,
+  },
+  {
+    id: 'doc-pizzabon', label: 'Pizzabon', sublabel: '14 juni · 23:47 — de avond dat alles begon.',
+    icon: '🍕', top: '78%', left: '78%', rotation: 7, width: '5vw', docStyle: 'receipt', render: asset10,
+  },
+]
+
 // ─── State ───
 let dossierOpen = false
 let currentPage = 0
@@ -200,6 +262,20 @@ function renderDesk(): string {
     </div>
   `).join('')
 
+  const docItems = deskDocAssets.map(d => `
+    <div class="desk-doc desk-doc--${d.docStyle}"
+         id="doc-${d.id}"
+         data-doc="${d.id}"
+         style="top:${d.top}; left:${d.left}; transform:rotate(${d.rotation}deg); width:${d.width};"
+         title="${d.label}">
+      <div class="desk-doc__mini">
+        <div class="desk-doc__mini-title">${d.label}</div>
+        <div class="desk-doc__mini-lines"></div>
+      </div>
+      <div class="desk-doc__tooltip">${d.sublabel}</div>
+    </div>
+  `).join('')
+
   const pageDots = dossierPages.map((_, i) =>
     `<div class="viewer__dot ${i === currentPage ? 'viewer__dot--active' : ''}" data-page="${i}"></div>`
   ).join('')
@@ -224,6 +300,7 @@ function renderDesk(): string {
   <div class="desk__bg"></div>
   <div class="desk__vignette"></div>
   ${assets}
+  ${docItems}
   <div class="desk-peek desk-peek--1" style="top:42%;left:47%;transform:rotate(-12deg);"></div>
   <div class="desk-peek desk-peek--2" style="top:44%;left:54%;transform:rotate(8deg);"></div>
   <div class="desk-peek desk-peek--3" style="top:58%;left:46%;transform:rotate(14deg);"></div>
@@ -494,6 +571,17 @@ function bindEvents() {
     })
   })
 
+  // Document asset clicks
+  document.querySelectorAll('.desk-doc').forEach(el => {
+    el.addEventListener('click', () => {
+      const id = el.getAttribute('data-doc')
+      if (!id) return
+      const doc = deskDocAssets.find(d => d.id === id)
+      if (!doc) return
+      openDocZoom(doc)
+    })
+  })
+
   // Asset zoom close
   document.getElementById('zoom-close')?.addEventListener('click', closeAssetZoom)
   document.getElementById('zoom-backdrop')?.addEventListener('click', closeAssetZoom)
@@ -618,6 +706,15 @@ function openAssetZoom(id: string) {
   document.getElementById('zoom')?.classList.add('zoom--open')
 }
 
+function openDocZoom(doc: DeskDocAsset) {
+  zoomedAsset = doc.id
+  const content = document.getElementById('zoom-content')
+  const label = document.getElementById('zoom-label')
+  if (content) content.innerHTML = `<div class="zoom-doc">${doc.render()}</div>`
+  if (label) label.innerHTML = `<strong>${doc.label}</strong><br><span class="zoom__sublabel">${doc.sublabel}</span>`
+  document.getElementById('zoom')?.classList.add('zoom--open')
+}
+
 function closeAssetZoom() {
   zoomedAsset = null
   document.getElementById('zoom')?.classList.remove('zoom--open')
@@ -646,6 +743,8 @@ function initAudio() {
   const splashBtn = document.getElementById('splash-btn')
 
   const startExperience = () => {
+    // Go fullscreen
+    document.documentElement.requestFullscreen?.().catch(() => {})
     // Start background music
     if (audioEl) {
       audioEl.play().catch(() => {})

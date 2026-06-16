@@ -1310,6 +1310,145 @@ body {
 }
 
 /* =========================================================
+   DESK DOCS — Document items on the desk
+   ========================================================= */
+.desk-doc {
+  position: absolute;
+  z-index: 11;
+  cursor: pointer;
+  transition: transform .3s ease, box-shadow .3s, filter .3s;
+}
+
+.desk-doc:hover {
+  transform: scale(1.15) translateY(-8px) !important;
+  z-index: 20;
+  filter: brightness(1.1);
+}
+
+/* Mini document preview */
+.desk-doc__mini {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  padding: 0.4vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25vw;
+  box-shadow: 0 4px 14px rgba(0,0,0,.4), 0 1px 3px rgba(0,0,0,.25);
+  overflow: hidden;
+}
+
+.desk-doc__mini-title {
+  font-family: var(--font-mono);
+  font-size: 0.5vw;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.desk-doc__mini-lines {
+  flex: 1;
+  background-image: repeating-linear-gradient(
+    0deg,
+    currentColor 0, currentColor 1px,
+    transparent 1px, transparent 0.45vw
+  );
+  opacity: .15;
+  border-radius: 1px;
+}
+
+/* Tooltip */
+.desk-doc__tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(10,8,6,.92);
+  backdrop-filter: blur(8px);
+  color: rgba(255,255,255,.85);
+  font-family: var(--font-serif);
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 8px 14px;
+  border-radius: 4px;
+  max-width: 280px;
+  white-space: normal;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+  z-index: 50;
+  box-shadow: 0 4px 16px rgba(0,0,0,.4);
+}
+
+.desk-doc:hover .desk-doc__tooltip {
+  opacity: 1;
+}
+
+/* ── Receipt style (kassabon, pizzabon) ── */
+.desk-doc--receipt .desk-doc__mini {
+  background: #fcfbf6;
+  aspect-ratio: 1 / 1.6;
+  color: #2a2a26;
+  border-bottom: 2px dashed #ccc;
+}
+
+/* ── Letter style ── */
+.desk-doc--letter .desk-doc__mini {
+  background: #fffdf8;
+  color: #23211c;
+  border-left: 3px solid var(--c-teal, #2c8c99);
+}
+
+/* ── Post-it style ── */
+.desk-doc--postit .desk-doc__mini {
+  background: linear-gradient(160deg, #fdf08a, #f7e055);
+  color: #3a3414;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 6px 16px rgba(0,0,0,.35), 2px 2px 0 rgba(0,0,0,.08);
+}
+
+.desk-doc--postit .desk-doc__mini-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.5vw;
+}
+
+/* ── Card style (indexkaart, fundamenten) ── */
+.desk-doc--card .desk-doc__mini {
+  background: #f3ead0;
+  color: #3a3320;
+  border-top: 2px solid #c2473a;
+}
+
+/* ── Document style (fax, nota, factuur, routekaart) ── */
+.desk-doc--document .desk-doc__mini {
+  background: #f4f3ee;
+  color: #262626;
+}
+
+.desk-doc--document .desk-doc__mini-title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.15vw;
+}
+
+/* Zoom doc container */
+.zoom-doc {
+  max-height: 80vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,.15) transparent;
+}
+
+.zoom-doc .asset-page {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* =========================================================
    DESK ASSETS — Physical objects on the desk
    ========================================================= */
 .desk-asset {

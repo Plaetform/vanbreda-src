@@ -2,7 +2,7 @@ import { dossier as d } from '../data/dossier'
 import { handwrite, hw } from '../utils/handwriting'
 
 // ─── Asset 01: Indexkaart — De casus ───
-function asset01(): string {
+export function asset01(): string {
   return `
 <div class="asset-page">
   <div class="asset-page__label no-print">Asset 01 · Indexkaart — De casus · print op A4</div>
@@ -30,7 +30,7 @@ function asset01(): string {
 }
 
 // ─── Asset 02: Faxbericht — AI-beslissing & escalatie ───
-function asset02(): string {
+export function asset02(): string {
   return `
 <div class="asset-page">
   <div class="asset-page__label no-print">Asset 02 · Faxbericht — AI-beslissing &amp; escalatie · print op A4</div>
@@ -74,7 +74,7 @@ function asset02(): string {
 }
 
 // ─── Asset 03: Claimbrief — Aan de verzekerde ───
-function asset03(): string {
+export function asset03(): string {
   return `
 <div class="asset-page">
   <div class="asset-page__label no-print">Asset 03 · Claimbrief — aan de verzekerde · print op A4</div>
@@ -109,7 +109,7 @@ function asset03(): string {
 }
 
 // ─── Asset 04: Post-it — Aantekening medewerker ───
-function asset04(): string {
+export function asset04(): string {
   const note1 = handwrite('Radiologiefactuur: patiënt-ID ontbreekt. Franse code niet gemapt op BE-polis. Handmatig nakijken — rest is akkoord.', 'postit', 1)
   const note2 = handwrite('Dubbele factuur geblokkeerd → €8.740,60 bespaard. Check.', 'postit', 2)
 
@@ -131,7 +131,7 @@ function asset04(): string {
 }
 
 // ─── Asset 05: Briefkaart — Voor- en achterzijde ───
-function asset05(): string {
+export function asset05(): string {
   return `
 <div class="asset-page">
   <div class="asset-page__label no-print">Asset 05 · Briefkaart — voor- en achterzijde · print op A4</div>
@@ -167,7 +167,7 @@ function asset05(): string {
 }
 
 // ─── Asset 06: Routekaart met stempels ───
-function asset06(): string {
+export function asset06(): string {
   const steps = [
     { nr: '01', naam: 'Document-intake', stempel: 'AUTONOOM', color: '#2f7d4f', rot: '-4deg' },
     { nr: '02', naam: 'Herkenning', stempel: '+ CONTROLE', color: '#9a6a1e', rot: '3deg' },
@@ -204,7 +204,7 @@ function asset06(): string {
 }
 
 // ─── Asset 07: Kassabon — Control-room ───
-function asset07(): string {
+export function asset07(): string {
   return `
 <div class="asset-page">
   <div class="asset-page__label no-print">Asset 07 · Kassabon — control-room metrics · print op A4</div>
@@ -235,7 +235,7 @@ function asset07(): string {
 }
 
 // ─── Asset 08: Ruitjespapier — Fundamenten ───
-function asset08(): string {
+export function asset08(): string {
   const checks = d.fundamenten.map((f, i) => {
     const rotations = [-6, 4, -3, 5, -4, 3, -5, 2, -2]
     return `<div style="display:flex;align-items:flex-start;gap:4mm;${i === d.fundamenten.length - 1 ? 'grid-column:1 / -1;' : ''}"><span style="width:6mm;height:6mm;border:1.5px solid #1d3a6e;display:flex;align-items:center;justify-content:center;color:#c2473a;font-size:18px;transform:rotate(${rotations[i]}deg);">✓</span>${hw(f.titel, 'annotation')}</div>`
@@ -257,7 +257,7 @@ function asset08(): string {
 }
 
 // ─── Asset 09: Interne nota — Open vragen ───
-function asset09(): string {
+export function asset09(): string {
   const vragen = d.openVragen.map((v, i) => {
     const nr = String(i + 1).padStart(2, '0')
     return `<div style="display:flex;gap:5mm;align-items:baseline;"><span style="font-family:var(--font-mono);font-size:16px;font-weight:700;color:var(--c-copper);">${nr}</span><span style="font-size:14px;color:#2d2a22;">${v}</span></div>`
@@ -288,7 +288,7 @@ function asset09(): string {
 }
 
 // ─── Asset 10: Pizzabon — Late-avond flow-sessie ───
-function asset10(): string {
+export function asset10(): string {
   const hwNote = handwrite('De avond dat alles begon.', 'postit', 303)
 
   return `
@@ -324,7 +324,7 @@ function asset10(): string {
 }
 
 // ─── Asset 11: Factuur — AI-tokens / verwerking ───
-function asset11(): string {
+export function asset11(): string {
   const lines = [
     { omschrijving: 'Documentextractie & classificatie', tokens: '~12.400', bedrag: '€ 0,19' },
     { omschrijving: 'Contextkoppeling (polis · CRM · historiek)', tokens: '~8.200', bedrag: '€ 0,13' },
