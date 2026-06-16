@@ -445,19 +445,46 @@ let audioEl: HTMLAudioElement | null = null
 let droppedPerChapter = [0, 0, 0, 0, 0, 0, 0, 0]
 let pageMinimized = false
 
+// Drops required per chapter: 3 = full onboarding, 1 = pattern, 0 = auto-reveal
+const requiredDrops = [3, 1, 0, 0, 0, 0, 0, 0]
 
 // ─── Page HTML helper ───
 function renderPageHTML(n: number): string {
   const ch = chapters[n]
   const cp = chapterPages[n]
   const drops = droppedPerChapter[n]
-  const stepClass = `desk-page__paper--step-${Math.min(drops, 3)}`
-  const completeClass = drops >= 3 ? 'desk-page__paper--complete' : ''
+  const needed = requiredDrops[n]
+  const isAutoReveal = needed === 0
+  const isLastPage = n === chapters.length - 1
+
+  // For auto-reveal pages, content is always fully shown
+  const effectiveDrops = isAutoReveal ? 3 : drops
+  const stepClass = `desk-page__paper--step-${Math.min(effectiveDrops, 3)}`
+  const isComplete = effectiveDrops >= needed && needed > 0
+  const completeClass = isComplete ? 'desk-page__paper--complete' : ''
+  const autoClass = isAutoReveal ? 'desk-page__paper--auto' : ''
+
+  // Drop zone content
+  let dropContent: string
+  if (isAutoReveal && !isLastPage) {
+    dropContent = '<button class="desk-page__next" id="page-next">Verder →</button>'
+  } else if (isAutoReveal && isLastPage) {
+    dropContent = ''
+  } else if (effectiveDrops >= needed) {
+    dropContent = '<div class="desk-page__drop-done">✓ Pagina compleet</div><button class="desk-page__next" id="page-next">Volgende fase →</button>'
+  } else {
+    dropContent = `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${drops}/${needed}</div>`
+  }
+
+  // Added label
+  const addedLabel = isAutoReveal
+    ? (isLastPage ? 'Dossier afgerond' : 'Lees en ga verder')
+    : (effectiveDrops >= needed ? 'Toegevoegd aan het dossier' : 'Bouw deze pagina op')
 
   return `
     <div class="desk-page" id="desk-page">
-      <div class="desk-page__added">${drops >= 3 ? 'Toegevoegd aan het dossier' : 'Bouw deze pagina op'}</div>
-      <div class="desk-page__paper ${stepClass} ${completeClass}" id="desk-paper">
+      <div class="desk-page__added">${addedLabel}</div>
+      <div class="desk-page__paper ${stepClass} ${completeClass} ${autoClass}" id="desk-paper">
         <button class="desk-page__close" id="page-close" title="Sluit pagina">✕</button>
         <div class="desk-page__pagenum">${cp.pageNum} / 8</div>
         <div class="desk-page__reveal desk-page__reveal--1">
@@ -475,9 +502,7 @@ function renderPageHTML(n: number): string {
           <div class="desk-page__footnote">${cp.footnote}</div>
         </div>
         <div class="desk-page__drop" id="page-drop">
-          ${drops >= 3
-            ? '<div class="desk-page__drop-done">✓ Pagina compleet</div><button class="desk-page__next" id="page-next">Volgende fase →</button>'
-            : `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${drops}/3</div>`}
+          ${dropContent}
         </div>
       </div>
       <div class="desk-page__question">${ch.question}</div>
