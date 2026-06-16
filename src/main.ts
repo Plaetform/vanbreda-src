@@ -1331,8 +1331,8 @@ function switchChapter(n: number) {
           const dreamBtn = document.getElementById('dream-video-btn')
           const videoContainer = dreamBtn?.closest('.cp-dream__video')
           if (dreamVideo && dreamBtn && videoContainer) {
-            // Duck background music to 75%
-            if (audioEl) audioEl.volume = 0.75
+            // Duck background music low during video
+            if (audioEl) audioEl.volume = 0.15
 
             dreamVideo.play().then(() => {
               videoContainer.classList.add('playing')
