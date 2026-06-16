@@ -135,6 +135,146 @@ body {
   box-shadow: 0 8px 24px rgba(0,0,0,.3);
 }
 
+/* =========================================================
+   CHAPTER OVERLAY — Question & Quote
+   ========================================================= */
+.chapter-overlay {
+  position: fixed;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  text-align: center;
+  pointer-events: none;
+  max-width: 700px;
+  transition: opacity .4s ease;
+}
+
+.chapter-overlay--transition {
+  opacity: 0;
+}
+
+.chapter-overlay__question {
+  font-family: var(--font-serif);
+  font-size: 1.4vw;
+  font-weight: 600;
+  color: rgba(255,255,255,.85);
+  text-shadow: 0 2px 12px rgba(0,0,0,.5);
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.chapter-overlay__quote {
+  font-family: var(--font-serif);
+  font-size: 0.85vw;
+  font-style: italic;
+  color: rgba(255,255,255,.4);
+  text-shadow: 0 1px 6px rgba(0,0,0,.4);
+  line-height: 1.4;
+}
+
+/* =========================================================
+   CHAPTER NAV — Bottom navigation bar
+   ========================================================= */
+.chapter-nav {
+  position: fixed;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 550;
+  display: flex;
+  gap: 4px;
+  padding: 6px 14px;
+  background: rgba(10,8,6,.6);
+  backdrop-filter: blur(12px);
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,.4);
+}
+
+.chapter-nav__dot {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all .3s ease;
+  color: rgba(255,255,255,.35);
+}
+
+.chapter-nav__dot:hover {
+  color: rgba(255,255,255,.7);
+  background: rgba(255,255,255,.06);
+}
+
+.chapter-nav__dot--active {
+  color: rgba(255,255,255,.9);
+  background: rgba(255,255,255,.1);
+}
+
+.chapter-nav__num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  flex-shrink: 0;
+}
+
+.chapter-nav__dot--active .chapter-nav__num {
+  background: rgba(255,255,255,.15);
+}
+
+.chapter-nav__label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: .06em;
+  white-space: nowrap;
+}
+
+/* =========================================================
+   LOCKED DOSSIER & HIDDEN BRIEF
+   ========================================================= */
+.desk-folder--locked {
+  opacity: .5;
+  cursor: not-allowed !important;
+  filter: saturate(.3);
+}
+
+.desk-folder--locked:hover {
+  transform: none !important;
+}
+
+.desk-folder__lock {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3vw;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,.5));
+  z-index: 5;
+}
+
+.desk-brief--hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.9);
+}
+
+/* Asset transitions for chapter switching */
+.desk-asset, .desk-doc {
+  transition: opacity .5s ease, transform .35s cubic-bezier(.25,.8,.25,1),
+              box-shadow .35s ease, filter .35s ease !important;
+}
+
 /* --- Typography Tokens --- */
 :root {
   --font-body: Arial, Helvetica, sans-serif;

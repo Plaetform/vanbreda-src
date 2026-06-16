@@ -22,7 +22,68 @@ interface DeskAsset {
   rotation: number
   width: string
   style: 'polaroid' | 'photo' | 'sketch' | 'document' | 'note'
+  chapters: number[]
 }
+
+interface DeskDocAsset {
+  id: string
+  label: string
+  sublabel: string
+  icon: string
+  top: string
+  left: string
+  rotation: number
+  width: string
+  docStyle: 'receipt' | 'letter' | 'postit' | 'card' | 'document'
+  render: () => string
+  chapters: number[]
+}
+
+// ─── Chapters (7 bewijsstukken) ───
+const chapters = [
+  {
+    id: 'belofte',
+    title: 'De belofte',
+    question: 'Welke ervaring willen we voor Sophie mogelijk maken?',
+    quote: 'We begonnen niet met technologie, maar met een belofte: dat Sophie nooit haar verhaal twee keer hoeft te vertellen.',
+  },
+  {
+    id: 'werkelijkheid',
+    title: 'De werkelijkheid',
+    question: 'Waar ontstaan vandaag frictie, uitzonderingen en verborgen werk?',
+    quote: 'Voordat we konden automatiseren, moesten we begrijpen waar het werk werkelijk zat.',
+  },
+  {
+    id: 'bewijs',
+    title: 'Het eerste bewijs',
+    question: 'Welke concrete verbetering kunnen we snel aantoonbaar maken?',
+    quote: 'Niet alles hoeft af te zijn om waarde te leveren. We begonnen met één use-case en bewezen dat het werkt.',
+  },
+  {
+    id: 'fundament',
+    title: 'Het fundament',
+    question: 'Wat moet betrouwbaar en herbruikbaar worden?',
+    quote: 'Fundamenten worden gericht versterkt rondom use-cases die direct waarde leveren.',
+  },
+  {
+    id: 'organisatie',
+    title: 'Mens & AI',
+    question: 'Hoe veranderen rollen, verantwoordelijkheid en samenwerking?',
+    quote: 'De moeilijkste verandering was niet dat AI meer ging doen. Het was dat mensen anders moesten leren kijken.',
+  },
+  {
+    id: 'schaal',
+    title: 'Schaal',
+    question: 'Hoe worden succesvolle onderdelen één bestuurbare operatie?',
+    quote: 'Niet de happy flow bewees dat het werkte, maar de manier waarop het systeem omging met twijfel.',
+  },
+  {
+    id: 'sophie',
+    title: 'Sophie',
+    question: 'Hebben alle eerdere keuzes samen geleid tot de ervaring die we haar beloofden?',
+    quote: 'Alles wat is ontworpen, getest en veranderd, komt nu samen in één kwetsbaar moment.',
+  },
+]
 
 // ─── Data ───
 const dossierPages = [
@@ -39,205 +100,91 @@ const dossierPages = [
 ]
 
 const deskAssets: DeskAsset[] = [
-  // ── TOP LEFT ──
-  {
-    id: 'bierviltje',
-    label: 'Het Bierviltje',
-    sublabel: 'Waar het begon — na het eerste gesprek schreven we het kernidee op een bierviltje.',
-    image: '/img-bierviltje.png',
-    top: '3%', left: '1%', rotation: -5, width: '12vw',
-    style: 'sketch',
-  },
-  {
-    id: 'servet',
-    label: 'Het Servet',
-    sublabel: 'Sophie\'s reis van Lyon tot automatische terugbetaling — in één avond geschetst op een servet.',
-    image: '/img-servet.png',
-    top: '28%', left: '1%', rotation: 3, width: '12vw',
-    style: 'sketch',
-  },
-  {
-    id: 'hand-sketch',
-    label: 'Eerste Schets',
-    sublabel: 'De allereerste schets van het proces — op een kladblok, met de verkeerde aannames.',
-    image: '/img-hand-sketch.png',
-    top: '52%', left: '2%', rotation: -3, width: '11vw',
-    style: 'sketch',
-  },
+  // Ch0: Belofte
+  { id: 'napkin', label: 'De Napkin', sublabel: 'De eerste versie van de customer journey — geschetst op een servet.',
+    image: '/img-napkin.png', top: '16%', left: '20%', rotation: 5, width: '11vw', style: 'sketch', chapters: [0] },
+  { id: 'hand-sketch', label: 'Eerste Schets', sublabel: 'De allereerste schets van het proces — op een kladblok.',
+    image: '/img-hand-sketch.png', top: '50%', left: '8%', rotation: -3, width: '11vw', style: 'sketch', chapters: [0] },
 
-  // ── BOTTOM LEFT ──
-  {
-    id: 'koffie',
-    label: 'Doorgewerkte Nacht',
-    sublabel: 'De nacht dat we doorwerkten aan het eerste prototype — koffieringen als bewijs.',
-    image: '/img-koffie.png',
-    top: '74%', left: '1%', rotation: -2, width: '11vw',
-    style: 'photo',
-  },
+  // Ch1: Werkelijkheid
+  { id: 'bierviltje', label: 'Het Bierviltje', sublabel: 'Na het eerste gesprek schreven we het kernidee op een bierviltje.',
+    image: '/img-bierviltje.png', top: '8%', left: '6%', rotation: -5, width: '12vw', style: 'sketch', chapters: [1] },
+  { id: 'pizza', label: 'Pizza & Pixels', sublabel: '14 juni · ±23:47 — de avond dat het idee vorm kreeg.',
+    image: '/img-pizza-bw.png', top: '60%', left: '75%', rotation: 4, width: '12vw', style: 'polaroid', chapters: [1] },
+  { id: 'postit', label: 'Brainstorm', sublabel: 'Alles op post-its tegen de muur. Hier werd de scope helder.',
+    image: '/img-postit-wall.png', top: '6%', left: '75%', rotation: 3, width: '12vw', style: 'photo', chapters: [1] },
+  { id: 'zo-nooit-meer', label: 'Zo Nooit Meer', sublabel: 'Het moment: "dit moeten we anders doen." De trigger.',
+    image: '/img-zo-nooit-meer.png', top: '50%', left: '5%', rotation: -6, width: '11vw', style: 'photo', chapters: [1] },
+  { id: 'servet', label: 'Het Servet', sublabel: 'Sophie\'s reis van Lyon tot terugbetaling — in één avond geschetst.',
+    image: '/img-servet.png', top: '30%', left: '4%', rotation: 3, width: '12vw', style: 'sketch', chapters: [1] },
 
-  // ── TOP RIGHT ──
-  {
-    id: 'postit',
-    label: 'Brainstorm',
-    sublabel: 'Alles wat we wisten — op post-its tegen de muur. Hier werd de scope helder.',
-    image: '/img-postit-wall.png',
-    top: '3%', left: '80%', rotation: 3, width: '12vw',
-    style: 'photo',
-  },
-  {
-    id: 'architecture',
-    label: 'Systeemontwerp',
-    sublabel: 'De technische architectuur — hoe data, AI en mens samenwerken in het nieuwe proces.',
-    image: '/img-architecture.png',
-    top: '28%', left: '83%', rotation: -4, width: '11vw',
-    style: 'document',
-  },
+  // Ch2: Bewijs
+  { id: 'whiteboard', label: 'Het Whiteboard', sublabel: 'Drie uur brainstormen, twintig post-its, één conclusie.',
+    image: '/img-whiteboard.png', top: '10%', left: '10%', rotation: -4, width: '12vw', style: 'photo', chapters: [2] },
+  { id: 'sketch', label: 'Prototype', sublabel: 'De eerste werkende schets — nog ruw, maar het bewees het idee.',
+    image: '/img-sketch.png', top: '55%', left: '75%', rotation: 5, width: '11vw', style: 'sketch', chapters: [2] },
 
-  // ── RIGHT MIDDLE ──
-  {
-    id: 'kassabon',
-    label: 'De Cijfers',
-    sublabel: 'Control Room metrics — de eerste keer dat de cijfers klopten. Doorlooptijd: 2 uur.',
-    image: '/img-sticky.png',
-    top: '50%', left: '85%', rotation: -3, width: '9vw',
-    style: 'note',
-  },
+  // Ch3: Fundament
+  { id: 'architecture', label: 'Systeemontwerp', sublabel: 'De architectuur — hoe data, AI en mens samenwerken.',
+    image: '/img-architecture.png', top: '10%', left: '78%', rotation: -4, width: '12vw', style: 'document', chapters: [3] },
+  { id: 'blueprint', label: 'De Blauwdruk', sublabel: 'De architectuur die alles verbindt — getekend op een regenachtige donderdag.',
+    image: '/img-blueprint-flow.png', top: '12%', left: '10%', rotation: -6, width: '11vw', style: 'document', chapters: [3] },
 
-  // ── BOTTOM RIGHT ──
-  {
-    id: 'pizza',
-    label: 'Pizza & Pixels',
-    sublabel: '14 juni · ±23:47 — de avond dat het idee vorm kreeg. Vier pizza\'s, twee whiteboards, één doorbraak.',
-    image: '/img-pizza-bw.png',
-    top: '62%', left: '80%', rotation: 4, width: '12vw',
-    style: 'polaroid',
-  },
-  {
-    id: 'zo-nooit-meer',
-    label: 'Zo Nooit Meer',
-    sublabel: 'Het moment waarop het team zei: "dit moeten we anders doen." De trigger voor verandering.',
-    image: '/img-zo-nooit-meer.png',
-    top: '78%', left: '82%', rotation: -6, width: '10vw',
-    style: 'photo',
-  },
+  // Ch4: Mens & AI
+  { id: 'polaroid-wb', label: 'Eerste Sessie', sublabel: 'De sessie waar AE en Vanbreda elkaars taal leerden.',
+    image: '/img-polaroid.png', top: '8%', left: '8%', rotation: 3, width: '12vw', style: 'polaroid', chapters: [4] },
+  { id: 'koffie', label: 'Doorgewerkte Nacht', sublabel: 'De nacht dat we doorwerkten — koffieringen als bewijs.',
+    image: '/img-koffie.png', top: '55%', left: '6%', rotation: -2, width: '11vw', style: 'photo', chapters: [4] },
 
-  // ── NEAR DOSSIER (top) ──
-  {
-    id: 'blueprint',
-    label: 'De Blauwdruk',
-    sublabel: 'De architectuur die alles verbindt — getekend op een regenachtige donderdag in Antwerpen.',
-    image: '/img-blueprint-flow.png',
-    top: '12%', left: '26%', rotation: -8, width: '10vw',
-    style: 'document',
-  },
-  {
-    id: 'annotations',
-    label: 'Feedback',
-    sublabel: 'Handgeschreven opmerkingen in de marge — "dit moet beter, dit kan slimmer."',
-    image: '/img-annotations.png',
-    top: '14%', left: '60%', rotation: 6, width: '10vw',
-    style: 'document',
-  },
+  // Ch5: Schaal
+  { id: 'annotations', label: 'Feedback', sublabel: 'Handgeschreven opmerkingen — "dit moet beter, dit kan slimmer."',
+    image: '/img-annotations.png', top: '10%', left: '76%', rotation: 6, width: '11vw', style: 'document', chapters: [5] },
+  { id: 'kassabon', label: 'De Cijfers', sublabel: 'Control Room metrics — doorlooptijd: 2 uur. Eerste review OK.',
+    image: '/img-sticky.png', top: '55%', left: '80%', rotation: -3, width: '10vw', style: 'note', chapters: [5] },
 
-  // ── BELOW DOSSIER ──
-  {
-    id: 'sophie',
-    label: 'Sophie De Winter',
-    sublabel: '41 · Brasschaat — voor haar bouwen we dit. Als het voor Sophie werkt, werkt het voor iedereen.',
-    image: '/img-cover-sophie.png',
-    top: '72%', left: '56%', rotation: -2, width: '11vw',
-    style: 'polaroid',
-  },
-  {
-    id: 'polaroid-wb',
-    label: 'Eerste Sessie',
-    sublabel: 'De whiteboard-sessie waar AE en Vanbreda elkaars taal leerden — en ontdekten dat ze hetzelfde wilden.',
-    image: '/img-polaroid.png',
-    top: '70%', left: '30%', rotation: 3, width: '11vw',
-    style: 'polaroid',
-  },
-  {
-    id: 'whiteboard',
-    label: 'Het Whiteboard',
-    sublabel: 'Drie uur brainstormen, twintig post-its, één conclusie: de klant centraal.',
-    image: '/img-whiteboard.png',
-    top: '72%', left: '42%', rotation: -4, width: '10vw',
-    style: 'photo',
-  },
-  {
-    id: 'napkin',
-    label: 'De Napkin',
-    sublabel: 'Een idee zo goed dat het op een servet moest — de eerste versie van de customer journey.',
-    image: '/img-napkin.png',
-    top: '16%', left: '42%', rotation: 5, width: '9vw',
-    style: 'sketch',
-  },
+  // Ch6: Sophie
+  { id: 'sophie', label: 'Sophie De Winter', sublabel: '41 · Brasschaat — voor haar bouwen we dit.',
+    image: '/img-cover-sophie.png', top: '60%', left: '55%', rotation: -2, width: '12vw', style: 'polaroid', chapters: [6] },
 ]
 
-// ─── Document assets (HTML-rendered, on desk) ───
-interface DeskDocAsset {
-  id: string
-  label: string
-  sublabel: string
-  icon: string
-  top: string
-  left: string
-  rotation: number
-  width: string
-  docStyle: 'receipt' | 'letter' | 'postit' | 'card' | 'document'
-  render: () => string
-}
-
 const deskDocAssets: DeskDocAsset[] = [
-  // ── Left side: formal documents ──
-  {
-    id: 'doc-indexkaart', label: 'Indexkaart', sublabel: 'De casus op één fiche — wie, wat, waar, en waarom.',
-    icon: '📋', top: '8%', left: '4%', rotation: -3, width: '7vw', docStyle: 'card', render: asset01,
-  },
-  {
-    id: 'doc-claimbrief', label: 'Claimbrief', sublabel: 'Aan Sophie — wat is goedgekeurd, wat wordt nog nagekeken.',
-    icon: '✉️', top: '22%', left: '6%', rotation: 4, width: '7vw', docStyle: 'letter', render: asset03,
-  },
-  {
-    id: 'doc-factuur', label: 'AI Factuur', sublabel: 'Eén dossier, €0,86 aan AI-kosten.',
-    icon: '💶', top: '60%', left: '4%', rotation: -5, width: '7vw', docStyle: 'document', render: asset11,
-  },
-  // ── Top-right: strategy documents ──
-  {
-    id: 'doc-routekaart', label: 'Routekaart', sublabel: 'De keten in 9 stappen — met stempels voor autonomie.',
-    icon: '🗺️', top: '6%', left: '78%', rotation: 3, width: '7vw', docStyle: 'document', render: asset06,
-  },
-  {
-    id: 'doc-faxbericht', label: 'Faxbericht', sublabel: 'AI-beslissing & escalatie — menselijke review vereist.',
-    icon: '📠', top: '20%', left: '82%', rotation: -4, width: '7vw', docStyle: 'document', render: asset02,
-  },
-  {
-    id: 'doc-nota', label: 'Interne Nota', sublabel: 'Open vragen — wat we samen moeten begrijpen.',
-    icon: '📄', top: '40%', left: '80%', rotation: 5, width: '7vw', docStyle: 'document', render: asset09,
-  },
-  // ── Bottom center: fun items ──
-  {
-    id: 'doc-postit', label: 'Post-its', sublabel: 'Radiologiefactuur: patiënt-ID ontbreekt. Dubbele factuur geblokkeerd.',
-    icon: '📝', top: '80%', left: '35%', rotation: -3, width: '6.5vw', docStyle: 'postit', render: asset04,
-  },
-  {
-    id: 'doc-fundamenten', label: 'Fundamenten', sublabel: 'Wat moest hiervoor waar zijn?',
-    icon: '✅', top: '80%', left: '52%', rotation: 4, width: '7vw', docStyle: 'card', render: asset08,
-  },
-  // ── Bottom right: receipts cluster ──
-  {
-    id: 'doc-kassabon', label: 'Kassabon', sublabel: 'Control Room metrics — het hele verhaal op één bonnetje.',
-    icon: '🧾', top: '62%', left: '82%', rotation: -6, width: '5vw', docStyle: 'receipt', render: asset07,
-  },
-  {
-    id: 'doc-pizzabon', label: 'Pizzabon', sublabel: '14 juni · 23:47 — de avond dat alles begon.',
-    icon: '🍕', top: '78%', left: '78%', rotation: 7, width: '5vw', docStyle: 'receipt', render: asset10,
-  },
+  // Ch1: Werkelijkheid
+  { id: 'doc-indexkaart', label: 'Indexkaart', sublabel: 'De casus op één fiche — wie, wat, waar, en waarom.',
+    icon: '📋', top: '75%', left: '8%', rotation: -3, width: '7vw', docStyle: 'card', render: asset01, chapters: [1] },
+
+  // Ch2: Bewijs
+  { id: 'doc-pizzabon', label: 'Pizzabon', sublabel: '14 juni · 23:47 — de bon van de avond dat alles begon.',
+    icon: '🍕', top: '75%', left: '78%', rotation: 7, width: '5vw', docStyle: 'receipt', render: asset10, chapters: [2] },
+
+  // Ch3: Fundament
+  { id: 'doc-routekaart', label: 'Routekaart', sublabel: '9 stappen — met stempels voor autonomie.',
+    icon: '🗺️', top: '50%', left: '8%', rotation: 3, width: '7vw', docStyle: 'document', render: asset06, chapters: [3] },
+  { id: 'doc-fundamenten', label: 'Fundamenten', sublabel: 'Wat moest hiervoor waar zijn?',
+    icon: '✅', top: '75%', left: '78%', rotation: 4, width: '7vw', docStyle: 'card', render: asset08, chapters: [3] },
+
+  // Ch4: Mens & AI
+  { id: 'doc-postit', label: 'Post-its', sublabel: 'Radiologiefactuur: patiënt-ID ontbreekt. Handmatig nakijken.',
+    icon: '📝', top: '75%', left: '45%', rotation: -3, width: '6.5vw', docStyle: 'postit', render: asset04, chapters: [4] },
+
+  // Ch5: Schaal
+  { id: 'doc-kassabon', label: 'Kassabon', sublabel: 'Control Room — het hele verhaal op één bonnetje.',
+    icon: '🧾', top: '75%', left: '8%', rotation: -6, width: '5vw', docStyle: 'receipt', render: asset07, chapters: [5] },
+  { id: 'doc-factuur', label: 'AI Factuur', sublabel: 'Eén dossier, €0,86 aan AI-kosten.',
+    icon: '💶', top: '50%', left: '5%', rotation: -5, width: '7vw', docStyle: 'document', render: asset11, chapters: [5] },
+
+  // Ch6: Sophie
+  { id: 'doc-faxbericht', label: 'Faxbericht', sublabel: 'AI-beslissing & escalatie — menselijke review vereist.',
+    icon: '📠', top: '10%', left: '78%', rotation: -4, width: '7vw', docStyle: 'document', render: asset02, chapters: [6] },
+  { id: 'doc-claimbrief', label: 'Claimbrief', sublabel: 'Aan Sophie — goedgekeurd, met één uitzondering.',
+    icon: '✉️', top: '25%', left: '80%', rotation: 4, width: '7vw', docStyle: 'letter', render: asset03, chapters: [6] },
+  { id: 'doc-nota', label: 'Interne Nota', sublabel: 'Open vragen — wat we samen moeten begrijpen.',
+    icon: '📄', top: '75%', left: '10%', rotation: 5, width: '7vw', docStyle: 'document', render: asset09, chapters: [6] },
 ]
 
 // ─── State ───
 let dossierOpen = false
 let currentPage = 0
+let currentChapter = 0
 let zoomedAsset: string | null = null
 let audioPlaying = false
 let audioEl: HTMLAudioElement | null = null
@@ -255,7 +202,8 @@ function renderDesk(): string {
     <div class="desk-asset desk-asset--${a.style}" 
          id="asset-${a.id}"
          data-asset="${a.id}"
-         style="top:${a.top}; left:${a.left}; transform:rotate(${a.rotation}deg); width:${a.width};"
+         data-chapters="${a.chapters.join(',')}"
+         style="top:${a.top}; left:${a.left}; transform:rotate(${a.rotation}deg); width:${a.width}; ${a.chapters.includes(currentChapter) ? '' : 'opacity:0; pointer-events:none;'}"
          title="${a.label}">
       <img src="${a.image}" alt="${a.label}" draggable="false">
       <div class="desk-asset__tooltip">${a.label}</div>
@@ -266,7 +214,8 @@ function renderDesk(): string {
     <div class="desk-doc desk-doc--${d.docStyle}"
          id="doc-${d.id}"
          data-doc="${d.id}"
-         style="top:${d.top}; left:${d.left}; transform:rotate(${d.rotation}deg); width:${d.width};"
+         data-chapters="${d.chapters.join(',')}"
+         style="top:${d.top}; left:${d.left}; transform:rotate(${d.rotation}deg); width:${d.width}; ${d.chapters.includes(currentChapter) ? '' : 'opacity:0; pointer-events:none;'}"
          title="${d.label}">
       <div class="desk-doc__mini">
         <div class="desk-doc__mini-title">${d.label}</div>
@@ -275,6 +224,16 @@ function renderDesk(): string {
       <div class="desk-doc__tooltip">${d.sublabel}</div>
     </div>
   `).join('')
+
+  const chapterNav = chapters.map((ch, i) => `
+    <button class="chapter-nav__dot ${i === currentChapter ? 'chapter-nav__dot--active' : ''}" data-chapter="${i}">
+      <span class="chapter-nav__num">${i + 1}</span>
+      <span class="chapter-nav__label">${ch.title}</span>
+    </button>
+  `).join('')
+
+  const ch = chapters[currentChapter]
+  const isLocked = currentChapter < 6
 
   const pageDots = dossierPages.map((_, i) =>
     `<div class="viewer__dot ${i === currentPage ? 'viewer__dot--active' : ''}" data-page="${i}"></div>`
@@ -296,6 +255,11 @@ function renderDesk(): string {
   </div>
 </div>
 
+<div class="chapter-overlay" id="chapter-overlay">
+  <div class="chapter-overlay__question">${ch.question}</div>
+  <div class="chapter-overlay__quote">${ch.quote}</div>
+</div>
+
 <div class="desk" id="desk">
   <div class="desk__bg"></div>
   <div class="desk__vignette"></div>
@@ -304,16 +268,17 @@ function renderDesk(): string {
   <div class="desk-peek desk-peek--1" style="top:42%;left:47%;transform:rotate(-12deg);"></div>
   <div class="desk-peek desk-peek--2" style="top:44%;left:54%;transform:rotate(8deg);"></div>
   <div class="desk-peek desk-peek--3" style="top:58%;left:46%;transform:rotate(14deg);"></div>
-  <div class="desk-folder ${dossierOpen ? 'desk-folder--hidden' : ''}" id="desk-folder">
+  <div class="desk-folder ${dossierOpen ? 'desk-folder--hidden' : ''} ${isLocked ? 'desk-folder--locked' : ''}" id="desk-folder">
     <div class="desk-folder__front">
       <div class="desk-folder__stamp">2030</div>
       <div class="desk-folder__title">DOSSIER<br>2030</div>
       <div class="desk-folder__sub">TERUGGESTUURD NAAR 2026</div>
       <div class="desk-folder__label">VERTROUWELIJK</div>
     </div>
-    <div class="desk-folder__hint">Klik om te openen</div>
+    <div class="desk-folder__hint">${isLocked ? '🔒 Pas te openen bij Sophie' : 'Klik om te openen'}</div>
+    ${isLocked ? '<div class="desk-folder__lock">🔒</div>' : ''}
   </div>
-  <div class="desk-brief" id="desk-brief">
+  <div class="desk-brief ${currentChapter === 6 ? '' : 'desk-brief--hidden'}" id="desk-brief">
     <div class="desk-brief__envelope">
       <div class="desk-brief__to">Sophie De Winter</div>
       <div class="desk-brief__subtitle">Brief · 17 april 2030</div>
@@ -323,6 +288,10 @@ function renderDesk(): string {
   <audio id="bg-audio" loop preload="auto">
     <source src="/audio/Yair Cohen - Rise Within.mp3" type="audio/mpeg">
   </audio>
+</div>
+
+<div class="chapter-nav" id="chapter-nav">
+  ${chapterNav}
 </div>
 
 <!-- Footer (always visible, above overlays) -->
@@ -537,8 +506,17 @@ function bindEvents() {
     if (icon) icon.textContent = '▶'
   })
 
-  // Open dossier
+  // Chapter navigation
+  document.querySelectorAll('.chapter-nav__dot').forEach(dot => {
+    dot.addEventListener('click', () => {
+      const ch = parseInt(dot.getAttribute('data-chapter') || '0')
+      switchChapter(ch)
+    })
+  })
+
+  // Open dossier (only if unlocked = chapter 6)
   document.getElementById('desk-folder')?.addEventListener('click', () => {
+    if (currentChapter < 6) return // locked
     dossierOpen = true
     currentPage = 0
     updateViewer()
@@ -713,6 +691,60 @@ function openDocZoom(doc: DeskDocAsset) {
   if (content) content.innerHTML = `<div class="zoom-doc">${doc.render()}</div>`
   if (label) label.innerHTML = `<strong>${doc.label}</strong><br><span class="zoom__sublabel">${doc.sublabel}</span>`
   document.getElementById('zoom')?.classList.add('zoom--open')
+}
+
+// ─── Chapter Switching ───
+function switchChapter(n: number) {
+  if (n < 0 || n >= chapters.length) return
+  currentChapter = n
+
+  // Update question/quote overlay
+  const ch = chapters[n]
+  const overlay = document.getElementById('chapter-overlay')
+  if (overlay) {
+    overlay.classList.add('chapter-overlay--transition')
+    setTimeout(() => {
+      const q = overlay.querySelector('.chapter-overlay__question')
+      const qu = overlay.querySelector('.chapter-overlay__quote')
+      if (q) q.textContent = ch.question
+      if (qu) qu.textContent = ch.quote
+      overlay.classList.remove('chapter-overlay--transition')
+    }, 300)
+  }
+
+  // Update nav dots
+  document.querySelectorAll('.chapter-nav__dot').forEach((dot, i) => {
+    dot.classList.toggle('chapter-nav__dot--active', i === n)
+  })
+
+  // Fade assets in/out
+  document.querySelectorAll('[data-chapters]').forEach(el => {
+    const chs = (el.getAttribute('data-chapters') || '').split(',').map(Number)
+    const htmlEl = el as HTMLElement
+    if (chs.includes(n)) {
+      htmlEl.style.opacity = '1'
+      htmlEl.style.pointerEvents = 'auto'
+    } else {
+      htmlEl.style.opacity = '0'
+      htmlEl.style.pointerEvents = 'none'
+    }
+  })
+
+  // Dossier lock/unlock
+  const folder = document.getElementById('desk-folder')
+  if (folder) {
+    folder.classList.toggle('desk-folder--locked', n < 6)
+    const hint = folder.querySelector('.desk-folder__hint')
+    if (hint) hint.textContent = n < 6 ? '🔒 Pas te openen bij Sophie' : 'Klik om te openen'
+    const lock = folder.querySelector('.desk-folder__lock')
+    if (n >= 6 && lock) lock.remove()
+  }
+
+  // Brief visibility
+  const brief = document.getElementById('desk-brief')
+  if (brief) {
+    brief.classList.toggle('desk-brief--hidden', n !== 6)
+  }
 }
 
 function closeAssetZoom() {
