@@ -104,118 +104,118 @@ const jobs: ImageJob[] = [
   // ─── NEW: Pagina 1 assets ───
   {
     name: "img-sophie-persona",
-    prompt: `Top-down photograph of a printed persona card (A5 landscape) on a dark wooden desk. The card shows "SOPHIE DE WINTER" in bold sans-serif type at the top, with a small circular placeholder silhouette photo. Below are fields: Leeftijd: 41, Beroep: Marketing Director, Taal: Nederlands/Frans, Voorkeurskanaal: App + telefoon, Werkgever: Pharma International, Verwachtingen: "Eén contactpunt", Zorgen: "Privacygevoelig". Orange accent color (#FF4B28) for headers. Clean modern design with rounded corners. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed persona card (A5 landscape) on a plain white background. The card shows "SOPHIE DE WINTER" in bold sans-serif type at the top. Below are structured fields: Leeftijd: 41, Woonplaats: Brasschaat, Beroep: Marketing Director, Werkgever: Pharma International, Taal: Nederlands / Frans, Voorkeurskanaal: App + telefoon, Verwachtingen: "Eén contactpunt, geen herhaling", Zorgen: "Privacy, snelheid, duidelijkheid". Orange accent color (#FF4B28) for headers and section dividers. A small silhouette avatar placeholder in top-right. Clean modern card design with rounded corners. Flat scan, no shadows, white background.`,
   },
   {
     name: "img-zakenreis",
-    prompt: `Top-down photograph on a dark wooden desk showing items suggesting a business trip: an open laptop, a congress badge lanyard with "PHARMA SUMMIT LYON 2030", a hotel key card, a boarding pass stub, and a small travel toiletry bag. The items are casually arranged as if just set down. Everything looks normal and routine — contrasting with the unexpected hospitalization to come. Warm natural lighting, photorealistic, editorial lifestyle feel. Shot from directly above.`,
+    prompt: `Top-down flat lay photograph on a light grey surface showing items suggesting a business trip: a congress badge lanyard reading "PHARMA SUMMIT LYON 2030 — Sophie De Winter, Pharma International", a hotel key card from "Grand Hôtel Lyon", a boarding pass stub "BRU → LYS", and a small notebook. The items are casually arranged. Everything looks normal and routine. Warm natural lighting, photorealistic, editorial lifestyle feel. Shot from directly above on a clean light surface.`,
   },
   {
     name: "img-klantvragen",
-    prompt: `Top-down photograph of a small yellow notepad page on a dark wooden desk. Handwritten in blue pen are worried customer questions in Dutch: "Ben ik verzekerd?", "Wie moet ik bellen?", "Welke documenten zijn nodig?", "Moet ik zelf betalen?", "Kan mijn werkgever mijn medische gegevens zien?". The handwriting is slightly shaky, suggesting stress. A few words are underlined. The notepad has a slight tear at the top where it was ripped from the pad. Warm intimate lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a small yellow notepad page on a white background. Handwritten in blue pen are worried customer questions in Dutch: "Ben ik verzekerd in het buitenland?", "Wie moet ik bellen?", "Welke documenten heeft Vanbreda nodig?", "Moet ik zelf voorschieten?", "Kan mijn werkgever mijn medische gegevens zien?". The handwriting is slightly unsteady, suggesting stress. A few words are underlined. The notepad has a slight tear at the top. Clean white background, flat scan style.`,
   },
   // ─── NEW: Pagina 2 assets ───
   {
     name: "img-voice-ai-stats",
-    prompt: `Top-down photograph of a printed mini-dashboard card (A5) on a dark wooden desk. Title: "VOICE AI — PRODUCTIERESULTATEN" in clean sans-serif type. Shows key metrics in large bold numbers with orange (#FF4B28) accent: "~80% calls via Voice AI", "95% routeringsnauwkeurigheid". Below are small bar charts showing monthly improvement. Labels in Dutch: "Meertalig", "Intentherkenning actief". A small trend arrow pointing up in green. The card has a modern data-viz design feel. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed mini-dashboard card (A5) on a white background. Title: "VOICE AI — PRODUCTIERESULTATEN" in clean sans-serif type. Shows key metrics in large bold numbers with orange (#FF4B28) accent: "~80%" labeled "Calls via Voice AI", "95%" labeled "Routeringsnauwkeurigheid". Below: small bar charts showing monthly trend. Labels: "Meertalig", "Intentherkenning actief", "Contextverrijking operationeel". A small green trend arrow. Modern data-viz card design. Flat scan, white background, no desk.`,
   },
   {
     name: "img-claims-stp",
-    prompt: `Top-down photograph of a printed results card (A5) on a dark wooden desk. Title: "CLAIMS — STP PERFORMANCE" in bold sans-serif. Large orange (#FF4B28) number "55%" dominates the card, labeled "Volumegewogen STP". Below: "±200.000 claims/maand", "Digitale intake actief", "OCR-capability". A small donut chart shows the STP ratio. The card has a professional dashboard aesthetic with clean typography. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed results card (A5) on a white background. Title: "CLAIMS — STP PERFORMANCE" in bold sans-serif. Large orange (#FF4B28) number "55%" dominates the card, labeled "Volumegewogen STP". Below: "±200.000 claims/maand", "Digitale intake actief", "OCR-capability". A small donut chart shows the STP vs manual ratio. Professional dashboard aesthetic. Flat scan, white background, no desk.`,
   },
   {
     name: "img-b2b-stp",
-    prompt: `Top-down photograph of a printed results card (A5) on a dark wooden desk. Title: "B2B/B2I — AANSLUITINGEN" in bold sans-serif. Large orange (#FF4B28) number "~87%" labeled "STP Aansluitingen". Below: "Digitale interfaces", "Partnerprocessen", "Beheermutaties". A small horizontal bar chart shows partner categories. Clean modern data card design. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed results card (A5) on a white background. Title: "B2B/B2I — AANSLUITINGEN" in bold sans-serif. Large orange (#FF4B28) number "~87%" labeled "STP Aansluitingen". Below: "Digitale interfaces", "Partnerprocessen", "Beheermutaties". A horizontal bar chart shows partner categories. Clean modern data card design. Flat scan, white background, no desk.`,
   },
   {
     name: "img-intent-classifier",
-    prompt: `Top-down photograph of a printed screenshot mockup on a dark wooden desk. The screenshot shows an intent classification UI: an incoming customer message in Dutch at the top, below it a detected intent label ("Claimstatus opvragen" with 94% confidence), suggested routing ("Claims team — Sophie De Winter"), and a context enrichment block showing polis and claim data. The design uses orange (#FF4B28) accents and clean sans-serif type. A handwritten annotation "Dit werkt al!" in the margin. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed screenshot mockup on a white background. The screenshot shows an intent classification UI. At top: incoming message "Ik bel over mijn ziekenhuisopname in Lyon — Sophie De Winter". Below: detected intent "Claimstatus opvragen" with 94% confidence badge. Suggested routing: "Claims team → Dossier HC-2030-004781". Context block showing: "Polis: VB-HC-89247, Werkgever: Pharma International, Status: In behandeling". Orange (#FF4B28) accents. A handwritten annotation "Dit werkt al!" in margin. Flat scan, white background.`,
   },
   {
     name: "img-rpa-schets",
-    prompt: `Top-down photograph of a hand-drawn technical sketch on graph paper lying on a dark wooden desk. The sketch shows a simple integration flow: "Voice AI → Classifier → RPA → Kernapplicatie" with boxes connected by arrows. Side annotations in blue pen: "Losse capabilities", "Niet end-to-end verbonden". Some red question marks between the arrows. A mechanical pencil and eraser nearby. The sketch looks like it was drawn during a whiteboard session. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a hand-drawn technical sketch on graph paper, white background. The sketch shows a simple integration flow: "Voice AI → Classifier → RPA → Kernapplicatie" with boxes connected by arrows. Side annotations in blue pen: "Losse capabilities", "Niet end-to-end verbonden". Red question marks between arrows indicating gaps. A mechanical pencil line style. The sketch looks like it was drawn during a whiteboard session. Flat scan on white background.`,
   },
   // ─── NEW: Pagina 3 assets ───
   {
     name: "img-papieren-dossier",
-    prompt: `Top-down photograph of a messy stack of paper documents on a dark wooden desk. The stack includes printouts, faxes, handwritten notes, forms with stamps, and a few yellow sticky notes. Some papers are slightly overlapping and at angles. This represents fragmented information across systems — the physical manifestation of data silos. A coffee cup stain is visible on one page. Warm lighting, photorealistic, slightly chaotic documentary feel. Shot from directly above.`,
+    prompt: `Top-down photograph of a messy stack of paper documents on a light grey surface. The stack includes printouts, a fax with "DE WINTER, S." visible, handwritten notes, forms with stamps, and yellow sticky notes reading "Nog checken" and "Welk systeem?". Papers slightly overlapping at angles. One visible form shows "Polisnr: VB-HC-89247". This represents fragmented information — the physical manifestation of data silos. A coffee cup stain on one page. Photorealistic, slightly chaotic documentary feel. Shot from directly above.`,
   },
   {
     name: "img-observatie-notitie",
-    prompt: `Top-down photograph of a small index card on a dark wooden desk. The card has a handwritten observation in Dutch with a blue pen: "Automatisch verwerkt betekent niet automatisch zonder handwerk." Below in smaller writing: "Grootste vertraging: uitzonderingen + overdrachten". The card has a small red exclamation mark drawn in the corner. Simple, sharp, insightful. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a small white index card on a white background. Handwritten observation in Dutch with a blue pen: "Automatisch verwerkt betekent niet automatisch zonder handwerk." Below in smaller writing: "Grootste vertraging: uitzonderingen + overdrachten". A small red exclamation mark drawn in the corner. Simple, sharp, insightful. Clean scan, white background.`,
   },
   // ─── NEW: Pagina 4 assets ───
   {
     name: "img-beslisregel",
-    prompt: `Top-down photograph of a printed decision rule card (A5) on a dark wooden desk. Title: "BESLISREGEL — Buitenlandse spoedopname" in monospace type. Below is a decision tree: "Medisch noodzakelijk? ✓ → Polis actief? ✓ → Automatisch voorstel tot dekking". Exception rule in orange box: "Onvoldoende patiëntmatch → Menselijke validatie vereist". The card uses green for auto-approve paths and orange for escalation. Clean technical design with handwritten note "Voorbeeld regel #47". Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed decision rule card (A5) on a white background. Title: "BESLISREGEL #47 — Buitenlandse spoedopname" in monospace type. Below is a structured decision tree: "Patiënt: Sophie De Winter (VB-HC-89247). Medisch noodzakelijk? ✓ → Polis actief? ✓ → Automatisch voorstel tot dekking". Exception rule in orange (#FF4B28) box: "Onvoldoende patiëntmatch → Menselijke validatie vereist". Green for auto-approve, orange for escalation. Handwritten note: "Toegepast op HC-2030-004781". Flat scan, white background.`,
   },
   {
     name: "img-audit-trail",
-    prompt: `Top-down photograph of a printed audit log on a dark wooden desk. The log shows a vertical timeline of a case: "09:14 Document ontvangen", "09:15 Data geëxtraheerd (AI)", "09:16 Bron gecontroleerd", "09:17 Regel #47 toegepast", "09:22 Uitzondering → Mens beoordeeld", "09:45 Besluit gecommuniceerd". Each entry has a timestamp, actor (AI/Mens), and action. A small "AUDIT TRAIL" header in monospace. Green checkmarks next to completed steps. The design is clean and bureaucratic. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed audit log on a white background. Header: "AUDIT TRAIL — Dossier HC-2030-004781 — Sophie De Winter". Vertical timeline: "09:14 Document ontvangen (AI)", "09:15 Data geëxtraheerd — OCR (AI)", "09:16 Bron gecontroleerd — polis VB-HC-89247 (AI)", "09:17 Regel #47 toegepast (AI)", "09:22 Uitzondering → Thomas V. beoordeelt (Mens)", "09:45 Besluit gecommuniceerd aan Sophie (AI+Mens)". Each entry has timestamp, actor tag, and action. Green checkmarks. Clean bureaucratic design. Flat scan, white background.`,
   },
   // ─── NEW: Pagina 5 assets ───
   {
     name: "img-rolkaart-exception",
-    prompt: `Top-down photograph of a professional role card (A5) on a dark wooden desk. Title: "ROLKAART — Exception Specialist" in bold sans-serif with orange (#FF4B28) accent line. Below are responsibilities in Dutch: "Beoordeelt complexe uitzonderingen", "Valideert onzekerheid", "Legt beslissingen uit aan klant", "Voedt feedback terug naar AI-modellen". A small person icon silhouette in the corner. The card has a modern HR/talent design feel with clean sections. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a professional role card (A5) on a white background. Title: "ROLKAART — Exception Specialist" in bold sans-serif with orange (#FF4B28) accent line at top. Responsibilities listed: "• Beoordeelt complexe uitzonderingen", "• Valideert bij onzekerheid (confidence < 85%)", "• Legt beslissingen uit aan klant", "• Voedt feedback terug naar AI-modellen", "• Escaleert bij gevoelige context". A silhouette person icon in corner. Example: "Thomas V. — Team Claims, Vanbreda". Modern HR card design. Flat scan, white background.`,
   },
   {
     name: "img-rolkaart-steward",
-    prompt: `Top-down photograph of a professional role card (A5) on a dark wooden desk. Title: "ROLKAART — Data & Model Steward" in bold sans-serif with orange (#FF4B28) accent line. Below are responsibilities: "Bewaakt datakwaliteit", "Monitort modelprestaties", "Analyseert correcties", "Beheert wijzigingen in beslisregels". A small data/chart icon in the corner. Modern HR card design. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a professional role card (A5) on a white background. Title: "ROLKAART — Data & Model Steward" in bold sans-serif with orange (#FF4B28) accent line. Responsibilities: "• Bewaakt datakwaliteit en volledigheid", "• Monitort modelprestaties en drift", "• Analyseert correcties door exception specialists", "• Beheert wijzigingen in beslisregels", "• Rapporteert aan process owner". A data/chart icon in corner. Modern HR card design. Flat scan, white background.`,
   },
   {
     name: "img-leiderschap-memo",
-    prompt: `Top-down photograph of a short internal leadership memo on premium paper on a dark wooden desk. The memo has a subtle company watermark. Handwritten in confident, clean script: "Technologie verandert het werk. Eigenaarschap, verantwoordelijkheid en kwaliteit blijven menselijk belegd." Signed with initials and a date. The paper is slightly textured, high quality. A fountain pen rests beside it. Warm lighting, photorealistic, authoritative feel. Shot from directly above.`,
+    prompt: `Scan of a short internal memo on premium cream stationery, white background. Handwritten in confident, clean script: "Technologie verandert het werk. Eigenaarschap, verantwoordelijkheid en kwaliteit blijven menselijk belegd." Signed with initials and date "juni 2030". The paper has subtle texture. A small "VERTROUWELIJK" watermark. Clean scan, white background, no desk.`,
   },
   // ─── NEW: Pagina 6 assets ───
   {
     name: "img-cross-pillar",
-    prompt: `Top-down photograph of a hand-drawn sketch on white paper on a dark wooden desk. The sketch shows a case flowing across three swim lanes labeled "Claims", "Communicatie", "B2B/B2I" with arrows crossing between them. Key handoff points are marked with orange (#FF4B28) circles. Annotations in Dutch: "Eén case, drie pijlers", "Hier moet orkestratie werken". The sketch is clean but hand-drawn, showing it was created during a design session. Blue pen with orange marker highlights. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a hand-drawn sketch on white paper. The sketch shows one case (labeled "HC-2030-004781 — Sophie") flowing across three horizontal swim lanes labeled "Claims", "Communicatie", "B2B/B2I" with arrows crossing between them. Key handoff points marked with orange (#FF4B28) circles. Annotations: "Eén case, drie pijlers", "Hier moet orkestratie werken". Clean but hand-drawn, blue pen with orange marker highlights. Flat scan, white background.`,
   },
   {
     name: "img-case-timeline",
-    prompt: `Top-down photograph of a printed vertical timeline card (A5) on a dark wooden desk. Title: "CASE TIMELINE — HC-2030-004781". The timeline shows: "09:14 Document binnen", "09:15 Identiteit bevestigd", "09:16 Polis gekoppeld", "09:22 Uitzondering herkend", "09:25 Expert toegewezen", "09:48 Klant geïnformeerd", "10:15 Betaling voorbereid". Each step has a colored dot (green=AI, orange=hybrid, red=human). Clean professional design with orange accent. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed vertical timeline card (A5) on a white background. Title: "CASE TIMELINE — HC-2030-004781 — Sophie De Winter". Timeline: "09:14 Document binnen — ziekenhuisfactuur Lyon", "09:15 Identiteit bevestigd — Sophie De Winter, VB-HC-89247", "09:16 Polis gekoppeld — Pharma International", "09:22 Uitzondering herkend — buitenlandse code", "09:25 Expert toegewezen — Thomas V.", "09:48 Klant geïnformeerd — pushbericht", "10:15 Betaling voorbereid". Colored dots: green=AI, orange=hybrid, red=human. Clean design, orange accent. Flat scan, white background.`,
   },
   {
     name: "img-orchestratie",
-    prompt: `Top-down photograph of a technical sketch on graph paper on a dark wooden desk. In the center is a rounded rectangle labeled "Case Coordinator / Orkestratie". Connected to it by lines are: "Kernsystemen", "AI Capabilities", "Medewerkers", "Partners", "Klantkanalen". The sketch shows how orchestration connects everything. Blue pen with some orange highlights for the central node. Clean engineering-style drawing. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a technical sketch on graph paper, white background. Center: rounded rectangle labeled "Case Coordinator / Orkestratie". Connected by lines to: "Kernsystemen", "AI Capabilities", "Medewerkers", "Partners", "Klantkanalen". Orange highlight for central node. Blue pen, engineering-style drawing. Annotation: "Verbindt alles rondom Sophie's case". Clean scan, white background.`,
   },
   {
     name: "img-feedbackloop",
-    prompt: `Top-down photograph of a simple circular diagram drawn on white paper on a dark wooden desk. The diagram shows: "Uitkomst → Correctie → Analyse → Regel/Model verbeteren → Opnieuw meten → Uitkomst" in a continuous loop. Orange (#FF4B28) arrows connect the steps. Title: "FEEDBACKLOOP — Continue verbetering". Clean, hand-drawn but neat style. A pen rests nearby. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Scan of a simple circular diagram on white paper, white background. The loop: "Uitkomst → Correctie → Analyse → Regel/model verbeteren → Opnieuw meten" returning to "Uitkomst". Orange (#FF4B28) arrows connect steps. Title: "FEEDBACKLOOP — Continue verbetering". Clean, hand-drawn but neat. Annotation: "Elke correctie maakt het systeem beter". Flat scan, white background.`,
   },
   // ─── NEW: Pagina 7 assets ───
   {
     name: "img-ziekenhuis-factuur",
-    prompt: `Top-down photograph of a hospital invoice/bill on a dark wooden desk. The invoice is from "HÔPITAL ÉDOUARD HERRIOT — LYON" with French headers. Shows patient "DE WINTER, Sophie", date of admission, itemized costs in euros (consultation, imagerie, séjour, bloc opératoire). A total of €4,847.50 at the bottom. Some handwritten annotations in blue pen translating key terms to Dutch. A paperclip and small yellow sticky note. The document looks official and slightly intimidating. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a hospital invoice on a white background. Header: "HÔPITAL ÉDOUARD HERRIOT — LYON — FACTURE". Patient: "Nom: DE WINTER, Sophie", "Date de naissance: 12-03-1989", "Date d'admission: 15-06-2030". Itemized costs in euros: Consultation €185, Imagerie (radiologie) €420, Séjour (3 nuits) €2.340, Bloc opératoire €1.562,50, Pharmacie €340. Total: €4.847,50. Official hospital invoice design with French headers. A small handwritten annotation in blue pen: "Vertaling nodig". Flat scan, white background, no desk.`,
   },
   {
     name: "img-ontslagverslag",
-    prompt: `Top-down photograph of a French hospital discharge summary on a dark wooden desk. The document header reads "COMPTE RENDU DE SORTIE" with the hospital logo. The text is in French medical terminology. Key passages are highlighted in yellow: diagnosis, procedure performed, discharge date, follow-up care. A small handwritten Dutch translation note is clipped to the side: "Diagnose: appendicitis acuut, Operatie: laparoscopisch, Ontslag: 3 dagen". The document has an official medical feel. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a French hospital discharge summary on a white background. Header: "COMPTE RENDU DE SORTIE — Hôpital Édouard Herriot, Lyon". Patient: "Mme DE WINTER, Sophie, née le 12-03-1989". Key passages highlighted in yellow: "Diagnostic: appendicite aiguë", "Intervention: appendicectomie laparoscopique", "Date de sortie: 18-06-2030", "Suivi: contrôle à J+10". A clipped Dutch translation note: "Diagnose: appendicitis acuut, Operatie: laparoscopisch, Ontslag: 3 dagen na opname". Official medical document. Flat scan, white background.`,
   },
   {
     name: "img-telefoon-transcript",
-    prompt: `Top-down photograph of a printed phone call transcript on a dark wooden desk. Title: "TRANSCRIPT — Inkomend gesprek 14:23". The transcript shows a conversation between Sophie and the system: "Sophie: Ik bel over mijn ziekenhuisopname...", "Voice AI: Ik zie uw dossier. Een moment.", "→ Intent: Claimstatus", "→ Dossier: HC-2030-004781 geopend", "→ Overdracht naar Thomas V. (Claims specialist)". Color-coded: AI actions in teal, human in black. Clean monospace typography. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed phone call transcript on a white background. Header: "TRANSCRIPT — Inkomend gesprek 14:23 — 16-06-2030". The transcript shows: "Sophie De Winter: Ik bel over mijn ziekenhuisopname in Lyon...", "Voice AI: Ik zie uw dossier HC-2030-004781. Een moment alstublieft.", "→ Intent herkend: Claimstatus (94%)", "→ Polis VB-HC-89247 actief", "→ Overdracht naar Thomas V. (Claims specialist)". Color-coded: AI actions in teal, human speech in black. Clean monospace typography. Flat scan, white background.`,
   },
   {
     name: "img-duplicaat-alert",
-    prompt: `Top-down photograph of a small alert card on a dark wooden desk. The card has a red/orange warning header: "⚠ DUPLICAATWAARSCHUWING" in bold sans-serif. Below: "Mogelijk dubbele ziekenhuisfactuur — 99,3% overeenkomst". Two document references side by side with matching amounts highlighted. A red "ACTIE VEREIST" label at the bottom. The card has a system-generated feel with clean, urgent design. Orange (#FF4B28) accent colors. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a system alert card on a white background. Orange/red warning header: "⚠ DUPLICAATWAARSCHUWING — Dossier HC-2030-004781". Body: "Patiënt: Sophie De Winter. Mogelijk dubbele ziekenhuisfactuur — 99,3% overeenkomst. Factuur 1: Hôpital Herriot €4.847,50 (15-06-2030). Factuur 2: Hôpital Herriot €4.847,50 (15-06-2030). ACTIE VEREIST — Handmatige verificatie door Thomas V." Orange (#FF4B28) accent colors. System-generated urgent design. Flat scan, white background.`,
   },
   {
     name: "img-klantbericht",
-    prompt: `Top-down photograph of a smartphone screen mockup lying on a dark wooden desk. The screen shows a push notification / message from "Vanbreda Health Care": "Uw dossier is grotendeels beoordeeld. Voor één aanvullende factuur voeren we nog een controle uit. U hoeft voorlopig niets te doen." Below is a small status indicator showing "3 van 4 facturen verwerkt". The notification design is clean, modern, with orange (#FF4B28) accent. The phone is partially visible, showing it's a real device. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean mockup of a smartphone notification on a white background. The notification is from "Vanbreda Health Care" with a small orange logo. Message: "Beste Sophie, uw dossier HC-2030-004781 is grotendeels beoordeeld. Voor één aanvullende factuur voeren we nog een controle uit. U hoeft voorlopig niets te doen. Zodra alles is afgerond, informeren wij u." Below: status bar "3 van 4 facturen verwerkt ●●●○". Clean modern notification design with orange (#FF4B28) accent. White background, flat mockup style.`,
   },
   {
     name: "img-betalingsoverzicht",
-    prompt: `Top-down photograph of a printed payment summary card on a dark wooden desk. Title: "BETALINGSOVERZICHT — HC-2030-004781" in clean sans-serif. Shows a table: "Goedgekeurd: €3,215.00 ✓", "Afgewezen (comfortkost): €340.00 ✗", "Gereserveerd: €1,292.50 ⏳", "Dubbele betaling voorkomen: €4,847.50 🛡". Total at bottom. Green, red, orange, and blue color coding. A green "VERWERKT" stamp. Clean financial document design. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a printed payment summary on a white background. Title: "BETALINGSOVERZICHT — HC-2030-004781 — Sophie De Winter". Table: "Spoedopname Lyon — Goedgekeurd: €3.215,00 ✓ (groen)", "Comfortkost — Afgewezen (niet gedekt): €340,00 ✗ (rood)", "Radiologie — Gereserveerd (patiëntmatch vereist): €1.292,50 ⏳ (oranje)", "Dubbele factuur — Betaling voorkomen: €4.847,50 🛡 (blauw)". Netto uitbetaling: €3.215,00. A green "VERWERKT" stamp. Clean financial document. Flat scan, white background.`,
   },
   // ─── NEW: Pagina 8 assets ───
   {
     name: "img-droom-uitvoering",
-    prompt: `Top-down photograph of an elegant card on a dark wooden desk. The card reads: "VAN DROOM NAAR UITVOERING" in bold sans-serif type. Below in smaller text: "De architectuur, roadmap, businesscase en aanpak staan in onze formele RFI-beantwoording." An arrow icon points right. The card has orange (#FF4B28) accent colors and a clean, forward-looking design. Premium paper texture. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of an elegant card on a white background. The card reads: "VAN DROOM NAAR UITVOERING" in bold sans-serif type. Below: "De architectuur, roadmap, businesscase en aanpak staan in onze formele RFI-beantwoording. Dit dossier toont wat Sophie ervaart. Het voorstel beschrijft hoe we dat realiseren." An arrow icon points right. Orange (#FF4B28) accent colors. Premium paper feel. Flat scan, white background.`,
   },
   {
     name: "img-ae-vanbreda-card",
-    prompt: `Top-down photograph of a premium collaboration card on a dark wooden desk. The card shows "AE × Vanbreda" in elegant typography with both company logos subtly incorporated. Below in handwritten-style text: "Samen ontwerpen, bewijzen, leren en opschalen." The card has a warm, partnership feel — not corporate advertising but a genuine commitment. Orange (#FF4B28) and navy blue (#1A3D8F) accent colors. Premium thick paper with subtle texture. Warm lighting, photorealistic. Shot from directly above.`,
+    prompt: `Clean scan of a premium collaboration card on a white background. The card shows "AE × Vanbreda" in elegant typography. Below in handwritten-style text: "Samen ontwerpen, bewijzen, leren en opschalen." The card has a warm partnership feel — not corporate but a genuine commitment. Orange (#FF4B28) and dark navy (#1D1D1D) accent colors. Premium thick paper with subtle texture. Flat scan, white background.`,
   },
 ];
 
