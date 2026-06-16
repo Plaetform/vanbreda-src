@@ -1087,11 +1087,16 @@ function bindPageEvents() {
     e.preventDefault()
     paper.classList.remove('desk-page__paper--dragover')
     const assetId = (e as DragEvent).dataTransfer?.getData('text/plain')
-    if (!assetId || droppedPerChapter[currentChapter] >= 3) return
+    const needed = requiredDrops[currentChapter]
+    if (!assetId || needed === 0 || droppedPerChapter[currentChapter] >= needed) return
     
     const prevDrops = droppedPerChapter[currentChapter]
     droppedPerChapter[currentChapter]++
     const newDrops = droppedPerChapter[currentChapter]
+    
+    // Map drops to step classes (scale to 3 steps)
+    const prevStep = Math.min(Math.floor((prevDrops / needed) * 3), 3)
+    const newStep = Math.min(Math.floor((newDrops / needed) * 3), 3)
     
     // Animate the dragged asset shrinking
     const dragged = document.getElementById(assetId)
@@ -1102,24 +1107,24 @@ function bindPageEvents() {
     }
 
     // Update step class for progressive reveal
-    paper.classList.remove(`desk-page__paper--step-${prevDrops}`)
-    paper.classList.add(`desk-page__paper--step-${newDrops}`)
+    paper.classList.remove(`desk-page__paper--step-${prevStep}`)
+    paper.classList.add(`desk-page__paper--step-${newStep}`)
 
     // Update "added" label
     const addedLabel = paper.closest('.desk-page')?.querySelector('.desk-page__added') as HTMLElement
-    if (addedLabel && newDrops >= 3) {
+    if (addedLabel && newDrops >= needed) {
       addedLabel.textContent = 'Toegevoegd aan het dossier'
     }
 
     // Update drop zone
     const dropZone = document.getElementById('page-drop')
     if (dropZone) {
-      if (newDrops >= 3) {
+      if (newDrops >= needed) {
         dropZone.innerHTML = '<div class="desk-page__drop-done">✓ Pagina compleet</div><button class="desk-page__next" id="page-next">Volgende fase →</button>'
         paper.classList.add('desk-page__paper--complete')
         document.getElementById('page-next')?.addEventListener('click', () => switchChapter(currentChapter + 1))
       } else {
-        dropZone.innerHTML = `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${newDrops}/3</div>`
+        dropZone.innerHTML = `<div class="desk-page__drop-hint">↓ Sleep bewijsstukken hierheen · ${newDrops}/${needed}</div>`
       }
     }
   })
